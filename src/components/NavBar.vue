@@ -1,7 +1,14 @@
 <template lang="">
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="tabs">
+    <div class="row px-3">
+      <router-link to="/" class="col nav-link" :class="{'active': homeIsActive}">Home</router-link>
+      <router-link to="/about" class="col nav-link" :class="{'active': aboutIsActive}">About</router-link>
+      <router-link to="/projects" class="col nav-link" :class="{'active': projectsIsActive}">Projects</router-link>
+    </div>
+  </div>
+  <nav class="navbar navbar-expand-lg bg-mist-2 sticky-top border-bottom">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Navbar</a>
+      <a class="navbar-brand" href="#">Portfolio</a>
       <button
         class="navbar-toggler"
         type="button"
@@ -14,7 +21,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
+        <ul class="navbar-nav mx-auto">
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="#">Home</a>
           </li>
@@ -24,63 +31,58 @@
           <li class="nav-item">
             <a class="nav-link" href="#">Pricing</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link disabled">Disabled</a>
-          </li>
         </ul>
       </div>
     </div>
   </nav>
 </template>
 <script>
-export default {};
+export default {
+  computed: {
+    currentPath(){
+      return this.$route.path
+    },
+    homeIsActive(){
+      if (this.$route.path == '/') {
+        return true
+      } else return false
+    },
+    aboutIsActive(){
+      if (this.$route.path == '/about') {
+        return true
+      } else return false
+    },
+    projectsIsActive(){
+      if (this.$route.path == '/projects') {
+        return true
+      } else return false
+    },
+  },
+
+};
 </script>
 
 <style scoped>
+.tabs {
+  height: var(--tabsHeight);
+  background-color: #555;
+  position: sticky;
+  top: 0;
+  overflow: hidden;
+}
+
+.tabs a {
+  max-height: var(--tabsHeight);
+  border: 1px solid var(--bs-danger);
+  border-bottom: none;
+  border-radius: 7px 7px 0px 0px;
+  background-color: #ccc;
+}
+.tabs a.active {
+  background-color: #fff;
+}
 nav {
-  padding: 30px;
-  background-color: var(--colorPrimary);
-  word-wrap: break-word;
-  padding: 10px;
-  z-index: 50;
-  /* position: sticky;
-      top: 0;
-      background-color: #232328; */
-}
-nav a {
-  font-weight: bold;
-  color: white;
-}
-nav a:hover {
-  font-weight: bold;
-  color: var(--textColorPrimary) !important;
+  top: var(--tabsHeight);
 }
 
-nav a.router-link-exact-active {
-  color: var(--textColorSecondary);
-}
-
-.logo {
-  width: 80px;
-  border-radius: 55px;
-  box-shadow: 0 0 3px 0px black;
-  scale: 1;
-  margin-right: 20px;
-}
-.logo:hover {
-  background-color: var(--textColorPrimary);
-  scale: 1.05;
-  animation: 2s ease-in-out spin infinite;
-  animation-fill-mode: forwards;
-}
-
-a {
-  text-decoration: none;
-}
-
-@media only screen and (max-width: 300px) {
-  .logo-link {
-    display: none;
-  }
-}
 </style>
