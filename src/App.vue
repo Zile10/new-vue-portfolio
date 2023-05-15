@@ -28,9 +28,12 @@ export default {
 <style>
 :root {
   --tabsHeight: 25px;
-  --bg1: #000000;
-  --bg2: #000000;
+  --bg1: #eee;
+  --bg2: #AAA;
 }
+/* body {
+  background-color: var(--bg1) !important;
+} */
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -58,10 +61,6 @@ export default {
 main,
 section {
   min-height: calc(100vh - 57px - var(--tabsHeight));
-}
-
-nav {
-  padding: 30px;
 }
 
 nav a {

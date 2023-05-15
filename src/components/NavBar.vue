@@ -1,39 +1,11 @@
-<template lang="">
-  <div class="tabs">
-    <div class="row px-3">
-      <router-link to="/" class="col nav-link" :class="{'active': homeIsActive}">Home</router-link>
-      <router-link to="/about" class="col nav-link" :class="{'active': aboutIsActive}">About</router-link>
-      <router-link to="/projects" class="col nav-link" :class="{'active': projectsIsActive}">Projects</router-link>
+<template>
+  <nav class="tabs">
+    <div class="row px-5 gap-2">
+      <router-link to="/" class="tab col nav-link" :class="{'active': homeIsActive}">Home</router-link>
+      <router-link to="/about" class="tab col nav-link" :class="{'active': aboutIsActive}">About</router-link>
+      <router-link to="/projects" class="tab col nav-link" :class="{'active': projectsIsActive}">Projects</router-link>
     </div>
-  </div>
-  <nav class="navbar navbar-expand-lg bg-mist-2 sticky-top border-bottom">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Portfolio</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarNav"
-        aria-controls="navbarNav"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav mx-auto">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Features</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Pricing</a>
-          </li>
-        </ul>
-      </div>
-    </div>
+    <div class="bar sticky-top"></div>
   </nav>
 </template>
 <script>
@@ -64,25 +36,35 @@ export default {
 
 <style scoped>
 .tabs {
-  height: var(--tabsHeight);
-  background-color: #555;
   position: sticky;
   top: 0;
   overflow: hidden;
+  box-shadow: 0 0px 5px rgba(0,0,0,0.8);
+  z-index: 10;
+}
+.tabs .row{
+  height: var(--tabsHeight);
+  background-color: #555;
+}
+.tabs .tab {
+  height: var(--tabsHeight);
+  /* border-bottom: none; */
+  border-radius: 6px 6px 0px 0px;
+  background-color: var(--bg2);
+  line-height: var(--tabsHeight);
+  box-shadow: 2px 2px rgba(255, 255, 255, 0.8) inset, -2px 0 rgba(0, 0, 0, 0.6) inset, 0px 0px 5px rgba(0, 0, 0, 0.6) inset; 
+}
+.tabs .tab.active {
+  background-color: var(--bg1);
+  box-shadow: 2px 2px rgba(255, 255, 255, 0.8) inset, -2px 0 rgba(0, 0, 0, 0.6) inset;
 }
 
-.tabs a {
-  max-height: var(--tabsHeight);
-  border: 1px solid var(--bs-danger);
-  border-bottom: none;
-  border-radius: 7px 7px 0px 0px;
-  background-color: #ccc;
+.bar {
+  height: 15px;
+  background-color: var(--bg1);
 }
-.tabs a.active {
-  background-color: #fff;
-}
-nav {
+/* nav {
   top: var(--tabsHeight);
-}
+} */
 
 </style>
