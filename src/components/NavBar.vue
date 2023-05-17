@@ -1,11 +1,18 @@
 <template>
   <nav class="tabs">
-    <div class="row px-5 gap-2">
-      <router-link to="/" class="tab col nav-link" :class="{'active': homeIsActive}">Home</router-link>
-      <router-link to="/about" class="tab col nav-link" :class="{'active': aboutIsActive}">About</router-link>
-      <router-link to="/projects" class="tab col nav-link" :class="{'active': projectsIsActive}">Projects</router-link>
-    </div>
-    <div class="bar sticky-top"></div>
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <router-link to="/" class="nav-link tab" :class="{'active': homeIsActive}" role="navigation" aria-controls="home-page" :aria-selected="homeIsActive">Home</router-link>
+      </li>
+      <li class="nav-item" role="presentation">
+        <router-link to="/about" class="nav-link tab" :class="{'active': aboutIsActive}" role="navigation" aria-controls="profile-page" :aria-selected="aboutIsActive">Profile</router-link>
+      </li>
+      <li class="nav-item" role="presentation">
+        <router-link to="/projects" class="nav-link tab" :class="{'active': projectsIsActive}" role="navigation" aria-controls="contact-page" :aria-selected="projectsIsActive">Contact</router-link>
+      </li>
+    </ul>
+    <div class="bookmark-bar sticky-top"></div>
+
   </nav>
 </template>
 <script>
@@ -35,36 +42,19 @@ export default {
 </script>
 
 <style scoped>
-.tabs {
+nav.tabs {
   position: sticky;
   top: 0;
   overflow: hidden;
   box-shadow: 0 0px 5px rgba(0,0,0,0.8);
   z-index: 10;
 }
-.tabs .row{
-  height: var(--tabsHeight);
-  background-color: #555;
-}
-.tabs .tab {
-  height: var(--tabsHeight);
-  /* border-bottom: none; */
-  border-radius: 6px 6px 0px 0px;
-  background-color: var(--bg2);
-  line-height: var(--tabsHeight);
-  box-shadow: 2px 2px rgba(255, 255, 255, 0.8) inset, -2px 0 rgba(0, 0, 0, 0.6) inset, 0px 0px 5px rgba(0, 0, 0, 0.6) inset; 
-}
-.tabs .tab.active {
-  background-color: var(--bg1);
-  box-shadow: 2px 2px rgba(255, 255, 255, 0.8) inset, -2px 0 rgba(0, 0, 0, 0.6) inset;
+nav.tabs ul {
+  background-color: #ddd;
 }
 
-.bar {
-  height: 15px;
-  background-color: var(--bg1);
+.bookmark-bar {
+  min-height: 25px;
 }
-/* nav {
-  top: var(--tabsHeight);
-} */
 
 </style>

@@ -26,14 +26,6 @@ export default {
 };
 </script>
 <style>
-:root {
-  --tabsHeight: 25px;
-  --bg1: #eee;
-  --bg2: #AAA;
-}
-/* body {
-  background-color: var(--bg1) !important;
-} */
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
