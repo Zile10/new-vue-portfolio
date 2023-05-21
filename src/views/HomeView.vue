@@ -1,11 +1,7 @@
 <template>
   <section id="home">
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <h1>John-Bruce Noad</h1>
-        </div>
-      </div>
+    <div class="container d-flex flex-column justify-content-center">
+      <h1>John-Bruce Noad</h1>
     </div>
   </section>
 </template>

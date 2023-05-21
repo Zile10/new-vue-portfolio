@@ -3,10 +3,6 @@
   <main>
     <router-view />
   </main>
-  <FooterComp />
-
-  
-  <div class="cursor"></div>
 </template>
 <script>
 import NavBar from "./components/NavBar.vue";
@@ -52,7 +48,7 @@ export default {
 
 main,
 section {
-  min-height: calc(100vh - 57px - var(--tabsHeight));
+  min-height: calc(100vh - 57px);
 }
 
 nav a {
