@@ -1,9 +1,12 @@
 <template>
   <NavBar/>
-  <Tabs/>
-  <main>
-    <router-view />
-  </main>
+  <div class="w-100">
+    <Tabs/>
+    <main>
+      <router-view />
+    </main>
+
+  </div>
 </template>
 <script>
 import Tabs from "./components/Tabs.vue";
@@ -26,13 +29,16 @@ export default {
 </script>
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Lato', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
   /* cursor: none !important; */
+  display: flex;
+
 }
+
 .cursor {
   width:  20px;
   height: 20px;
@@ -61,5 +67,12 @@ nav a {
 
 nav a.router-link-exact-active {
   color: #42b983;
+}
+/* nav {
+  padding: 30px;
+} */
+
+main {
+  margin-left: 60px;
 }
 </style>
