@@ -5,7 +5,7 @@
   </main>
 </template>
 <script>
-import NavBar from "./components/NavBar.vue";
+import NavBar from "./components/Tabs.vue";
 import FooterComp from "./components/Footer.vue";
 export default {
   components: {
