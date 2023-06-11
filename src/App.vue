@@ -28,6 +28,9 @@ export default {
 };
 </script>
 <style>
+:root {
+  
+}
 #app {
   font-family: 'Lato', sans-serif;
   -webkit-font-smoothing: antialiased;

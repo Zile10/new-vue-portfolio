@@ -4,12 +4,6 @@
       <li class="nav-item" role="presentation">
         <button class="nav-link active tab" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Home</button>
       </li>
-      <li class="nav-item" role="presentation">
-        <button class="nav-link tab" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Profile</button>
-      </li>
-      <li class="nav-item" role="presentation">
-        <button class="nav-link tab" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">Contact</button>
-      </li>
       <li class="nav-item d-flex justify-content-center align-items-center px-1" role="presentation">
         <button class="nav-link plus" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">
           <img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/afafaf/plus--v1.png" alt="plus--v1"/>
@@ -92,17 +86,29 @@ nav.tabs {
 }
 nav.tabs ul {
   background-color: #ddd;
+  border: none;
 }
-/* nav.tabs ul li {
-  border-top: 1px solid #333;
-} */
+nav.tabs ul li {
+  clip-path: polygon(20% 0%,100% 0%,100% 100%,0% 100%,0% 30%);
+  /* background-color: red; */
+  padding: 1px 0px 0px 1px;
+  
+}
 nav.tabs ul li .tab{
-  border-right: 1px solid #999;
+  /* border-right: 1px solid #999; */
   min-width: 100px;
   height: 35px;
   line-height: 35px;
   padding-top: 0;
   padding-bottom: 0;
+  background-color: #ddd;
+  clip-path: polygon(20% 0%,100% 0%,100% 100%,0% 100%,0% 30%);
+  /* box-shadow: 0 0 0 2px black inset; */
+  margin-bottom: none;
+}
+nav.tabs ul li .tab.active {
+  background-color: #fff;
+  padding-bottom: none;
 }
 nav.tabs ul li .plus{
   padding: 0;

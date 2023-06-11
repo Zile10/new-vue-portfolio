@@ -3,31 +3,31 @@
 
     <!-- Closed/Open Area of Nav -->
     <div class="side-nav-mini">
-      <img src="https://img.icons8.com/ios-glyphs/30/FFFFFF/menu--v1.png" class="burger-menu" @click="toggleNavbar"/>
-      <ul class="navbar-nav nav-icons me-auto mb-2 mb-lg-0" :class="{closed: !navOpen}">
+      <img src="https://img.icons8.com/ios-glyphs/30/FFFFFF/menu--v1.png" class="burger-menu" @click="toggleNavbar" />
+      <ul class="navbar-nav nav-icons me-auto mb-2 mb-lg-0" :class="{ closed: !navOpen }">
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="#homeDiv">
-            <img src="https://img.icons8.com/ios/50/FFFFFF/home--v1.png" class="nav-icon"/>
-          </a>
+          <router-link to="/" class="nav-link" aria-current="page">
+            <img src="https://img.icons8.com/ios/50/FFFFFF/home--v1.png" class="nav-icon" />
+          </router-link>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#searchDiv">
-            <img src="https://img.icons8.com/ios-filled/50/FFFFFF/search--v1.png" class="nav-icon"/> 
-          </a>
+          <router-link to="/about" class="nav-link">
+            <img src="https://img.icons8.com/ios-filled/50/FFFFFF/search--v1.png" class="nav-icon" />
+          </router-link>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#businessDiv">
-            <img src="https://img.icons8.com/ios/50/FFFFFF/business--v1.png" class="nav-icon"/>
-          </a>
+          <router-link to="/resume" class="nav-link">
+            <img src="https://img.icons8.com/ios/50/FFFFFF/business--v1.png" class="nav-icon" />
+          </router-link>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#techDiv">
-            <img src="https://img.icons8.com/ios/50/FFFFFF/electronics.png" class="nav-icon"/>
-          </a>
+          <router-link to="/projects" class="nav-link">
+            <img src="https://img.icons8.com/ios/50/FFFFFF/electronics.png" class="nav-icon" />
+          </router-link>
         </li>
       </ul>
 
-      <ul class="navbar-nav nav-icons me-auto mb-2 mb-lg-0" :class="{closed: !navOpen}">
+      <ul class="navbar-nav nav-icons me-auto mb-2 mb-lg-0" :class="{ closed: !navOpen }">
         <li class="nav-item">
           <a href="https://github.com/Zile10" target="_blank">
             <img src="https://img.icons8.com/ios-glyphs/30/FFFFFF/github.png" loading="lazy" class="nav-icon">
@@ -53,31 +53,31 @@
       <ul class="navbar-nav navbar-open me-auto mb-2 mb-lg-0" v-show="navOpen">
         <li class="nav-item">
           <a class="nav-link" aria-current="page" href="#homeDiv">
-            <img src="https://img.icons8.com/ios/50/FFFFFF/home--v1.png" class="nav-icon invisible"/>
+            <img src="https://img.icons8.com/ios/50/FFFFFF/home--v1.png" class="nav-icon invisible" />
             <span>Home</span>
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#searchDiv">
-            <img src="https://img.icons8.com/ios-filled/50/FFFFFF/search--v1.png" class="nav-icon invisible"/> 
-              <span>Explore</span>
+            <img src="https://img.icons8.com/ios-filled/50/FFFFFF/search--v1.png" class="nav-icon invisible" />
+            <span>Explore</span>
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#businessDiv">
-            <img src="https://img.icons8.com/ios/50/FFFFFF/business--v1.png" class="nav-icon invisible"/>
+            <img src="https://img.icons8.com/ios/50/FFFFFF/business--v1.png" class="nav-icon invisible" />
             <span>Business</span>
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#techDiv">
-            <img src="https://img.icons8.com/ios/50/FFFFFF/electronics.png" class="nav-icon invisible"/>
+            <img src="https://img.icons8.com/ios/50/FFFFFF/electronics.png" class="nav-icon invisible" />
             <span>Technology</span>
           </a>
         </li>
       </ul>
 
-      <ul class="navbar-nav nav-icons me-auto mb-2 mb-lg-0" :class="{closed: !navOpen}">
+      <ul class="navbar-nav nav-icons me-auto mb-2 mb-lg-0" :class="{ closed: !navOpen }">
         <li class="nav-item">
           <a href="https://github.com/Zile10" target="_blank">
             <img src="https://img.icons8.com/ios-glyphs/30/FFFFFF/github.png" loading="lazy" class="nav-icon invisible">
@@ -126,6 +126,7 @@ export default {
   display: grid;
   grid-template-rows: 1fr 7fr;
 }
+
 ul li {
   margin-top: 10px;
 }
@@ -159,12 +160,14 @@ ul li a.router-link-exact-active {
   z-index: 20;
   justify-content: center;
 }
+
 .burger-menu {
   cursor: pointer;
   border-radius: 30px;
   padding: 8px;
   margin-top: 10px;
 }
+
 .burger-menu:hover {
   background-color: #444;
 }
@@ -172,6 +175,7 @@ ul li a.router-link-exact-active {
 .side-nav-mini ul {
   margin: 0 auto;
 }
+
 .nav-icon {
   width: 32px !important;
 }
@@ -197,12 +201,13 @@ ul li a.router-link-exact-active {
   text-align: left;
   margin-left: 18px;
 }
-.side-nav-large ul li span{
+
+.side-nav-large ul li span {
   margin-left: 25px;
   vertical-align: middle;
 }
+
 .side-nav-large.side-nav-open {
   left: 0px;
   width: 300px;
-}
-</style>
+}</style>
