@@ -29,7 +29,7 @@ export default {
 </script>
 <style>
 :root {
-  
+  --primaryColor: #333;
 }
 #app {
   font-family: 'Lato', sans-serif;

@@ -11,12 +11,12 @@
         <!-- <img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/737373/plus--v1.png" alt="plus--v1"/> -->
       </li>
     </ul>
-    <div class="tab-content" id="myTabContent">
+    <!-- <div class="tab-content" id="myTabContent">
       <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">...</div>
       <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">...</div>
       <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">...</div>
       <div class="tab-pane fade" id="disabled-tab-pane" role="tabpanel" aria-labelledby="disabled-tab" tabindex="0">...</div>
-    </div>
+    </div> -->
     <!-- <ul class="nav nav-tabs">
       <li class="nav-item">
         <a class="nav-link active" aria-current="page" href="#">Active</a>
@@ -31,7 +31,7 @@
         <a class="nav-link disabled">Disabled</a>
       </li>
     </ul> -->
-    <!-- <div class="bookmark-bar sticky-top"></div> -->
+    <div class="bookmark-bar sticky-top"></div>
 
   </nav>
 </template>
@@ -77,7 +77,7 @@ export default {
 </script>
 
 <style scoped>
-nav.tabs {
+.tabs {
   position: sticky;
   top: 0;
   overflow: hidden;
@@ -88,13 +88,13 @@ nav.tabs ul {
   background-color: #ddd;
   border: none;
 }
-nav.tabs ul li {
+.tabs ul li {
   clip-path: polygon(20% 0%,100% 0%,100% 100%,0% 100%,0% 30%);
   /* background-color: red; */
   padding: 1px 0px 0px 1px;
   
 }
-nav.tabs ul li .tab{
+.tabs ul li .tab{
   /* border-right: 1px solid #999; */
   min-width: 100px;
   height: 35px;
@@ -104,19 +104,21 @@ nav.tabs ul li .tab{
   background-color: #ddd;
   clip-path: polygon(20% 0%,100% 0%,100% 100%,0% 100%,0% 30%);
   /* box-shadow: 0 0 0 2px black inset; */
-  margin-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 0;
+  border-bottom: 0;
 }
-nav.tabs ul li .tab.active {
-  background-color: #fff;
-  padding-bottom: none;
+.tabs ul li .tab.active {
+  background-color: var(--primaryColor);
+  color: white;
 }
-nav.tabs ul li .plus{
+.tabs ul li .plus{
   padding: 0;
 }
 
 .bookmark-bar {
   min-height: 20px;
-  background-color: #fff;
+  background-color: var(--primaryColor);
 }
 
 </style>
