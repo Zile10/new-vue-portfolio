@@ -63,7 +63,7 @@ export default {
 </script>
 
 <style scoped>
-nav.tabs {
+.tabs {
   position: sticky;
   top: 0;
   overflow: hidden;
@@ -115,17 +115,17 @@ nav.tabs ul li .tab{
     )
   ;
 }
-nav.tabs ul li .tab.active {
-  background-color: #fff;
-  padding-bottom: none;
+.tabs ul li .tab.active {
+  background-color: var(--primaryColor);
+  color: white;
 }
-nav.tabs ul li .plus{
+.tabs ul li .plus{
   padding: 0;
 }
 
 .bookmark-bar {
   min-height: 20px;
-  background-color: #fff;
+  background-color: var(--primaryColor);
 }
 
 </style>
