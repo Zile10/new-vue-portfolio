@@ -1,59 +1,44 @@
 <template>
-  <section id="home">
-    <div
-      class="container d-flex flex-column justify-content-center align-items-center"
-    >
-      <div class="content">
-        <h1>John-Bruce Noad</h1>
-        <div class="controls">
-          <form class="d-flex" role="search">
-            <input
-              class="form-control rounded-5 border-3"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
-          </form>
-          <div class="row">
-            <div class="col-2 p-1 pt-2">
-              <div class="card">
-                <img width="48" src="https://img.icons8.com/material-outlined/48/image.png" alt="image" class="m-auto"/>
-                <p>Shortcut</p>
-              </div>
-            </div>
-            <div class="col-2 p-1 pt-2">
-              <div class="card">
-                <img width="48" src="https://img.icons8.com/material-outlined/48/image.png" alt="image" class="m-auto"/>
-                <p>Shortcut</p>
-              </div>
-            </div>
-            <div class="col-2 p-1 pt-2">
-              <div class="card">
-                <img width="48" src="https://img.icons8.com/material-outlined/48/image.png" alt="image" class="m-auto"/>
-                <p>Shortcut</p>
-              </div>
-            </div>
-            <div class="col-2 p-1 pt-2">
-              <div class="card">
-                <img width="48" src="https://img.icons8.com/material-outlined/48/image.png" alt="image" class="m-auto"/>
-                <p>Shortcut</p>
-              </div>
-            </div>
-            <div class="col-2 p-1 pt-2">
-              <div class="card">
-                <img width="48" src="https://img.icons8.com/material-outlined/48/image.png" alt="image" class="m-auto"/>
-                <p>Shortcut</p>
-              </div>
-            </div>
-            <div class="col-2 p-1 pt-2">
-              <div class="card">
-                <img width="48" src="https://img.icons8.com/material-outlined/48/image.png" alt="image" class="m-auto"/>
-                <p>Shortcut</p>
-              </div>
-            </div>
+  <section id="home" class="container bg-secondary mt-1 text-white text-start">
+    <h1>John-Bruce Noad</h1>
+    <div class="about-me">
+      <h4>About Me</h4>
+      <div class="m-auto text-center">
+        <CornerCutBox 
+          :styles="{
+            width: '100%', 
+            height: '10em', 
+            background: 'url(https://i.postimg.cc/9XZJbH71/wxl-landscape-pixel-art-73232.jpg); background-repeat: no-repeat', 
+            borderColor:'rgb(255, 20, 20)', 
+            borderWidth:'0px',
+            cutSize: '1.5em',
+          }"
+          cuts="2"
+        >
+          hello
+        </CornerCutBox>
+        <hr>
+      </div>
+    </div>
+    <div class="about-me">
+      <h4>About Me</h4>
+      <div class="m-auto">
+        <CornerCutBox 
+          :styles="{
+            width: '100%', 
+            height: '10em', 
+            background: 'rgb(255, 140, 140)', 
+            borderColor:'rgb(255, 20, 20)', 
+            borderWidth:'.5em',
+            cutSize: '1.5em',
+          }"
+          cuts="2"
+        >
+          <div class="text-center">
+            hello
           </div>
-        </div>
+        </CornerCutBox>
+        <hr>
       </div>
     </div>
   </section>
@@ -61,28 +46,18 @@
 
 <script>
 // @ is an alias to /src
+import CornerCutBox from '@/components/CornerCutBox.vue';
 
 export default {
   name: "HomeView",
-  components: {},
+  components: {
+    CornerCutBox
+  },
 };
 </script>
 
 <style scoped>
-#home {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-#home .container {
-  min-height: 500px;
-}
-
-h1 {
-  font-weight: bolder;
-  color: #333;
-}
-.container .controls {
-  width: 600px;
-}
+  .container{
+    width: 85%;
+  }
 </style>

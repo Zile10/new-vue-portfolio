@@ -5,7 +5,6 @@
     <main>
       <router-view />
     </main>
-
   </div>
 </template>
 <script>
@@ -29,7 +28,7 @@ export default {
 </script>
 <style>
 :root {
-  
+  --primColor: #333;
 }
 #app {
   font-family: 'Lato', sans-serif;
@@ -58,7 +57,12 @@ export default {
   border-radius: 5px;
 }
 
-main,
+main{
+  /* border-left: 2px solid rgb(255, 20, 20); */
+  min-height: calc(100vh - 54px);
+
+}
+
 section {
   min-height: calc(100vh - 57px);
 }
@@ -71,11 +75,5 @@ nav a {
 nav a.router-link-exact-active {
   color: #42b983;
 }
-/* nav {
-  padding: 30px;
-} */
 
-main {
-  margin-left: 60px;
-}
 </style>
