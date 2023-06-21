@@ -93,6 +93,7 @@ nav.tabs ul li .cut{
   position: relative;
   background: linear-gradient(rgba(255, 20, 20, 1), rgba(255, 20, 20, 0));
   border-radius: 0 var(--border-width) 0 0;
+  margin: 0 2px;
 }
 /* li > *:not(.cut) {
   border-bottom: 2px solid rgb(255, 20, 20);
@@ -116,8 +117,8 @@ nav.tabs ul li .tab{
   ;
 }
 .tabs ul li .tab.active {
-  background-color: var(--primaryColor);
-  color: white;
+  background-color: white;
+  /* color: white; */
 }
 .tabs ul li .plus{
   padding: 0;

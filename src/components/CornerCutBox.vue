@@ -38,7 +38,7 @@ export default {
         width: 30em;
         height: 10em;
         --background: darkcyan;
-        --border-color: crimson;
+        --border-color: 220, 20, 60;
         --border-width: 4px;
         --cut-size: 2.5em;
         --cuts: 1;
@@ -49,7 +49,7 @@ export default {
         display: inline-grid;
         /* padding: 0.5em 1.5em; */
         border: 0;
-        background: var(--background);
+        /* background: var(--background); */
     }
 
     .cut-box::after, .cut-box::before {
@@ -59,15 +59,25 @@ export default {
     }
 
     .cut-box::before{
-        background: var(--border-color);
+        background: transparent;
         z-index: -2;
     }
-
     .cut-box::after{
         background: var(--background);
         z-index: -1;
         background-size: cover;
-        background-position: center;
+        background-position: center center;
+        transition-property: background-position;
+        transition-duration: 0.2s;
+        transition-timing-function: ease-in-out;
+    }
+    /* Hover Effects */
+
+    .cut-box:hover::before{
+        background: linear-gradient(rgb(var(--border-color)), rgba(var(--border-color), 0.6));
+    }
+    .cut-box:hover::after{
+        background-position: bottom 45% center;
     }
 /* Cut Box General Styles (End) */
 
