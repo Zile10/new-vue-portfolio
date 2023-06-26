@@ -3,7 +3,7 @@
     <ul class="nav nav-tabs" id="myTab" role="tablist">
       <li class="nav-item" role="presentation">
         <div class="cut">
-          <button class="nav-link active tab" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Home</button>
+          <button style="text-transform: capitalize;" class="nav-link active tab" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">{{ routeName }}</button>
 
         </div>
       </li>
@@ -14,16 +14,23 @@
       </li>
     </ul>
 
-    <div class="bookmark-bar sticky-top"></div>
+    <div class="bookmark-bar sticky-top bg-white"></div>
   </nav>
 </template>
 <script>
 import CornerCutBox from './CornerCutBox.vue';
 export default {
+  data() {
+    return {
+    }
+  },
   components: {
     CornerCutBox
   },
   computed: {
+    routeName(){
+      return this.$route.name || 'Loading...'
+    },
     currentPath(){
       return this.$route.path
     },
