@@ -110,10 +110,16 @@ export default {
           routePath: '/'
         },
       );
+      this.$router.push('/')
     },
     closeTab(index) {
       this.tabs.splice(index, 1);
-      setTimeout(() => this.tabs[this.tabs.length - 1].isActive = true, 1)
+      this.tabs[this.tabs.length - 1].isActive = true
+      this.tabs.forEach(tab => {
+        if (tab.isActive) {
+          this.$router.replace(tab.routePath)
+        }
+      })
     },
     fixTabs() {
       setTimeout(() => {
