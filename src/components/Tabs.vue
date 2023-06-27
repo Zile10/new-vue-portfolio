@@ -115,11 +115,14 @@ export default {
     closeTab(index) {
       this.tabs.splice(index, 1);
       this.tabs[this.tabs.length - 1].isActive = true
-      this.tabs.forEach(tab => {
-        if (tab.isActive) {
-          this.$router.replace(tab.routePath)
-        }
-      })
+      setTimeout(() => {
+        this.tabs.forEach(tab => {
+          if (tab.isActive) {
+            this.$router.replace(tab.routePath)
+          }
+        })
+
+      }, 0.1)
     },
     fixTabs() {
       setTimeout(() => {
