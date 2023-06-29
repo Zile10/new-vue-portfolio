@@ -1,4 +1,5 @@
 import { createStore } from 'vuex'
+import router from '../router'
 
 export default createStore({
   state: {
@@ -6,24 +7,28 @@ export default createStore({
       {
         isActive: true,
         isHovering: false,
-        routeName: this.routeName,
-        routePath: this.currentPath || '/'
+        routeName: 'home',
+        routePath: '/'
       },
     ],
-    lastActiveTab: null
+    lastActiveTab: null,
+    route: {
+      name: null,
+      path: null
+    }
   },
   getters: {
   },
   mutations: {
     switchTabs(state, index){
-      if (this.tabs[index]) {
-        for (const tab of this.tabs){
+      if (state.tabs[index]) {
+        for (const tab of state.tabs){
           if (tab.isActive) {
             tab.isActive = false
-            this.lastActiveTab = index
+            state.lastActiveTab = state.tabs.indexOf(tab)
           }
         }
-        this.tabs[index].isActive = true   
+        state.tabs[index].isActive = true   
       }
     },
     newTab(state) {
@@ -40,55 +45,44 @@ export default createStore({
           routePath: '/'
         },
       );
-      // this.$router.push('/')
+      router.push('/')
     },
     closeTab(state, index) {
       state.tabs.splice(index, 1);
-      state.tabs[state.tabs.length - 1].isActive = true
       setTimeout(() => {
         state.tabs.forEach(tab => {
+          tab.isActive = false
+          state.tabs[state.tabs.length - 1].isActive = true
           if (tab.isActive) {
-            state.$router.replace(tab.routePath)
+            router.replace(tab.routePath)
           }
         })
 
-      }, 0.1)
+      }, 1)
     },
-    fixTabs() {
-      setTimeout(() => {
-        state.tabs.shift();
-        state.tabs.unshift({
-          isActive: true,
-          isHovering: false,
-          routeName: state.routeName,
-          routePath: state.currentPath
-        });
-      }, 0.1);
+    setCurrentRoute(state, route){
+      state.route = route
     },
+    updateCurrentTab(state){
+      state.tabs.forEach((tab) => {
+        if (tab.isActive) {
+          tab.routeName = state.route.name
+          tab.routePath = state.route.path
+        }
+      })
+    }
   },
   actions: {
+    switchTabs(context, index){
+      context.commit('switchTabs', index)
+    },
+    newTab(context) {
+      context.commit('newTab')
+    },
+    closeTab(context, tab) {
+      context.commit('closeTab', tab)
+    },
   },
   modules: {
-    switchTabs(state, index){
-      state.commit('switchTabs', index)
-    },
-    newTab(state) {
-      state.commit('newTab')
-    },
-    closeTab(state, index) {
-      state.commit('closeTab', index)
-    },
-    fixTabs() {
-      setTimeout(() => {
-        this.tabs.shift();
-        this.tabs.unshift({
-          isActive: true,
-          isHovering: false,
-          routeName: this.routeName,
-          routePath: this.currentPath
-        });
-        console.log(this.tabs[0].routePath);
-      }, 0.1);
-    },
   }
 })

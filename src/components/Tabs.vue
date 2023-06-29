@@ -7,39 +7,43 @@
         v-for="tab in tabs"
         :key="tabs.indexOf(tab)"
       >
-      <router-link :to="tab.routePath" style="text-decoration: none;">
-        <div :class="{ cut: tab.isActive }">
-          <button
-            style="text-transform: capitalize"
-            class="nav-link tab pe-1"
-            :class="{ active: tab.isActive }"
-            id="home-tab"
-            data-bs-target="#home-tab-pane"
-            type="button"
-            role="tab"
-            aria-controls="home-tab-pane"
-            :aria-selected="tab.isActive"
-            @click="switchTabs(tabs.indexOf(tab))"
-            @mouseenter="tab.isHovering = true"
-            @mouseleave="tab.isHovering = false"
-          >
-            {{ tab.routeName }}
-            <button
-            v-if="!tab.isActive || (tab.isHovering && tabs.length>1)"
-              style="border: none; background-color: transparent"
-              class="p-0 m-auto"
-              @click="closeTab(tabs.indexOf(tab))"
+        <router-link :to="tab.routePath" style="text-decoration: none">
+          <div :class="{ cut: tab.isActive }">
+            <div 
+              class="tab d-flex" 
+              :class="{ active: tab.isActive }"
+              @mouseenter="tab.isHovering = true"
+              @mouseleave="tab.isHovering = false"
             >
-              <img
-                width="25"
-                height="25"
-                src="https://img.icons8.com/ios-glyphs/60/afafaf/macos-close.png"
-                alt="macos-close"
-              />
-            </button>
-          </button>
-        </div>
-      </router-link>
+              <button
+                style="text-transform: capitalize"
+                class="nav-link p-0 ms-4 border-0"
+                id="home-tab"
+                data-bs-target="#home-tab-pane"
+                type="button"
+                role="tab"
+                aria-controls="home-tab-pane"
+                :aria-selected="tab.isActive"
+                @click="switchTabs(tabs.indexOf(tab))"
+              >
+                {{ tab.routeName }}
+              </button>
+              <button
+                v-if="!tab.isActive || (tab.isHovering && tabs.length > 1)"
+                style="border: none; background-color: transparent"
+                class="p-0 m-auto" :class="{'bg-white': tab.isActive}"
+                @click="closeTab(tabs.indexOf(tab))"
+              >
+                <img
+                  width="25"
+                  height="25"
+                  src="https://img.icons8.com/ios-glyphs/60/afafaf/macos-close.png"
+                  alt="macos-close"
+                />
+              </button>
+            </div>
+          </div>
+        </router-link>
       </li>
 
       <li
@@ -71,75 +75,19 @@
 <script>
 import CornerCutBox from "./CornerCutBox.vue";
 export default {
-  data() {
-    return {
-      tabs: [
-        {
-          isActive: true,
-          isHovering: false,
-          routeName: this.routeName,
-          routePath: this.currentPath || '/'
-        },
-      ],
-      lastActiveTab: null
-    };
-  },
-  methods: {
-    switchTabs(index){
-      if (this.tabs[index]) {
-        for (const tab of this.tabs){
-          if (tab.isActive) {
-            tab.isActive = false
-            this.lastActiveTab = index
-          }
-        }
-        this.tabs[index].isActive = true   
-      }
-    },
-    newTab() {
-      for (const tab of this.tabs) {
-        if (tab.isActive) {
-          tab.isActive = false;
-        }
-      }
-      this.tabs.push(
-        {
-          isActive: true,
-          isHovering: false,
-          routeName: 'home',
-          routePath: '/'
-        },
-      );
-      this.$router.push('/')
-    },
-    closeTab(index) {
-      this.tabs.splice(index, 1);
-      this.tabs[this.tabs.length - 1].isActive = true
-      setTimeout(() => {
-        this.tabs.forEach(tab => {
-          if (tab.isActive) {
-            this.$router.replace(tab.routePath)
-          }
-        })
-
-      }, 0.1)
-    },
-    fixTabs() {
-      setTimeout(() => {
-        this.tabs.shift();
-        this.tabs.unshift({
-          isActive: true,
-          isHovering: false,
-          routeName: this.routeName,
-          routePath: this.currentPath
-        });
-        console.log(this.tabs[0].routePath);
-      }, 0.1);
-    },
-  },
-
   components: {
     CornerCutBox,
+  },
+  methods: {
+    switchTabs(index) {
+      this.$store.dispatch("switchTabs", index);
+    },
+    newTab() {
+      this.$store.dispatch("newTab");
+    },
+    closeTab(index) {
+      this.$store.dispatch("closeTab", index);
+    },
   },
   computed: {
     currentPath() {
@@ -148,20 +96,22 @@ export default {
     routeName() {
       return this.$route.name;
     },
+    tabs() {
+      return this.$store.state.tabs;
+    },
+    lastActiveTab() {
+      return this.$store.state.lastActiveTab;
+    },
   },
-  mounted() {
-    this.fixTabs();
-  },
-  watch:{
+  watch: {
     $route(to, from) {
-      this.tabs.forEach(tab => {
-        if (tab.isActive){
-          tab.routeName = this.routeName
-          tab.routePath = this.currentPath
-        }
-      })
-    }
-  }
+      this.$store.commit("setCurrentRoute", {
+        name: this.$route.name,
+        path: this.$route.path,
+      });
+      this.$store.commit("updateCurrentTab");
+    },
+  },
 };
 </script>
 
