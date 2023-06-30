@@ -49,16 +49,13 @@ export default createStore({
     },
     closeTab(state, index) {
       state.tabs.splice(index, 1);
-      setTimeout(() => {
-        state.tabs.forEach(tab => {
-          tab.isActive = false
-          state.tabs[state.tabs.length - 1].isActive = true
-          if (tab.isActive) {
-            router.replace(tab.routePath)
-          }
-        })
-
-      }, 1)
+      state.tabs.forEach(tab => {
+        tab.isActive = false
+        state.tabs[state.tabs.length - 1].isActive = true
+        if (tab.isActive) {
+          router.replace(tab.routePath)
+        }
+      })
     },
     setCurrentRoute(state, route){
       state.route = route
