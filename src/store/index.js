@@ -1,5 +1,9 @@
-import { createStore } from 'vuex'
-import router from '../router'
+// Imports
+import { createStore } from 'vuex';
+import router from '../router';
+import axios from "axios";
+
+const apiUrl = 'http://localhost:6969/' 
 
 export default createStore({
   state: {
@@ -15,7 +19,8 @@ export default createStore({
     route: {
       name: null,
       path: null
-    }
+    },
+    projects: [],
   },
   getters: {
   },
@@ -67,9 +72,15 @@ export default createStore({
           tab.routePath = state.route.path
         }
       })
-    }
+    },
+
+    // API - Projects
+    setProjects(state, projects){
+      state.projects
+    },
   },
   actions: {
+    // Tabs
     switchTabs(context, index){
       context.commit('switchTabs', index)
     },
@@ -79,6 +90,11 @@ export default createStore({
     closeTab(context, tab) {
       context.commit('closeTab', tab)
     },
+    // API - Projects
+    async getProjects(context) {
+      const res = await axios.get(`${apiUrl}projects`);
+      context.commit('setProjects', res.data);
+    }
   },
   modules: {
   }
