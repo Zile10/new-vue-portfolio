@@ -6,7 +6,7 @@
       <div class="m-auto text-center">
         <router-link to="/about">
           <CornerCutBox 
-            :styles="{
+            :styling="{
               width: '100%', 
               height: '10em', 
               background: 'url(https://i.postimg.cc/9XZJbH71/wxl-landscape-pixel-art-73232.jpg); background-repeat: no-repeat', 
@@ -27,7 +27,7 @@
       <div class="m-auto row">
         <div class="col">
           <CornerCutBox 
-            :styles="{
+            :styling="{
               width: '100%', 
               height: '10em', 
               background: 'rgb(255, 140, 140)', 
@@ -44,7 +44,7 @@
         </div>
         <div class="col">
           <CornerCutBox 
-            :styles="{
+            :styling="{
               width: '100%', 
               height: '10em', 
               background: 'rgb(255, 140, 140)', 
@@ -61,7 +61,7 @@
         </div>
         <div class="col">
           <CornerCutBox 
-            :styles="{
+            :styling="{
               width: '100%', 
               height: '10em', 
               background: 'rgb(255, 140, 140)', 
@@ -78,7 +78,7 @@
         </div>
         <div class="col">
           <CornerCutBox 
-            :styles="{
+            :styling="{
               width: '100%', 
               height: '10em', 
               background: 'rgb(255, 140, 140)', 
@@ -101,7 +101,7 @@
       <div class="m-auto row">
         <div class="col">
           <CornerCutBox 
-            :styles="{
+            :styling="{
               width: '100%', 
               height: '10em', 
               background: 'rgb(255, 140, 140)', 
@@ -118,7 +118,7 @@
         </div>
         <div class="col">
           <CornerCutBox 
-            :styles="{
+            :styling="{
               width: '100%', 
               height: '10em', 
               background: 'rgb(255, 140, 140)', 
@@ -135,10 +135,10 @@
         </div>
         <div class="col">
           <CornerCutBox 
-            :styles="{
+            :styling="{
               width: '100%', 
               height: '10em', 
-              background: 'rgb(255, 140, 140)', 
+              background: 'rgb(255, 140, 140)',
               borderColor:'255, 20, 20', 
               borderWidth:'0.5em',
               cutSize: '1.5em',
@@ -152,7 +152,7 @@
         </div>
         <div class="col">
           <CornerCutBox 
-            :styles="{
+            :styling="{
               width: '100%', 
               height: '10em', 
               background: 'rgb(255, 140, 140)', 

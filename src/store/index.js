@@ -76,7 +76,7 @@ export default createStore({
 
     // API - Projects
     setProjects(state, projects){
-      state.projects
+      state.projects = projects
     },
   },
   actions: {
@@ -93,6 +93,7 @@ export default createStore({
     // API - Projects
     async getProjects(context) {
       const res = await axios.get(`${apiUrl}projects`);
+      console.log(res.data);
       context.commit('setProjects', res.data);
     }
   },

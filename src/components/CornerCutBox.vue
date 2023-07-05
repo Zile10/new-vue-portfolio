@@ -16,20 +16,27 @@
     -->
     <div class="cut-box" :class="`cut-box-${cuts || '1'}`" 
         :style="`
-            width: ${styles.width || '30em'};
-            height: ${styles.height || '10em'};
-            --background: ${styles.background || 'darkcyan'};
-            --border-color: ${styles.borderColor || 'blue'};
-            --border-width: ${styles.borderWidth || '0.5em'};
-            --cut-size: ${styles.cutSize || '2.5em'};
-            --cuts: ${cuts || '1'};
+            width: ${(styling.width || '30em')};
+            height: ${(styling.height || '10em')};
+            --background: ${(styling.background || 'darkcyan')};
+            --border-color: ${(styling.borderColor || '220, 20, 60')};
+            --border-width: ${styling.borderWidth || '0.5em'};
+            --cut-size: ${(styling.cutSize || '2.5em')};
+            --cuts: ${(cuts || '1')};
         `">
         <slot></slot>
     </div>
 </template>
 <script>
 export default {
-    props: ['styles', 'cuts']
+    props: {
+        styling:{
+            default: {}
+        }, 
+        cuts:{
+            default: 1
+        }
+    }
 }
 </script>
 <style>
