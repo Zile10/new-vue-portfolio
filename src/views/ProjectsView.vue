@@ -3,7 +3,7 @@
       <h1>PROJECTS PAGE!!!</h1>
       <div class="container">
         <div class="row">
-          <div class="col" v-for="proj in projects" :key="proj.id">
+          <div class="col-6" v-for="proj in projects" :key="proj.id">
             <!-- <a :href="proj.projectUrl"> -->
               <CornerCutBox :styling="{width: '100%', height: '350px', background: `url(${proj.imgUrl})`}" :cuts="2">
                 <iframe :src="proj.projectUrl" frameborder="0"></iframe>
@@ -72,18 +72,5 @@ export default {
     max-height: 300px ;
     overflow: hidden !important;
     cursor: zoom-in;
-  }
-  iframe {
-    width: 90vw;
-    height: 100vh;
-    transform: scale(0.3);
-    -webkit-transform: scale(0.3);
-    -moz-transform: scale(0.3);
-    transform-origin: top left;
-    z-index: 1;
-    position: relative;
-    border-radius: 50px;
-  }
-
-  
+  }  
 </style>

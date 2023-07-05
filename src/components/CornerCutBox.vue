@@ -16,8 +16,8 @@
     -->
     <div class="cut-box" :class="`cut-box-${cuts || '1'}`" 
         :style="`
-            width: ${(styling.width || '30em')};
-            height: ${(styling.height || '10em')};
+            --width: ${(styling.width || '30em')};
+            --height: ${(styling.height || '10em')};
             --background: ${(styling.background || 'darkcyan')};
             --border-color: ${(styling.borderColor || '220, 20, 60')};
             --border-width: ${styling.borderWidth || '0.5em'};
@@ -42,18 +42,23 @@ export default {
 <style>
 /* Cut Box General Styles */
     .cut-box{
-        width: 30em;
-        height: 10em;
+        --width: 30em;
+        --height: 10em;
         --background: darkcyan;
         --border-color: 220, 20, 60;
         --border-width: 4px;
         --cut-size: 2.5em;
         --cuts: 1;
 
+        width: var(--width);
+        height: var(--height);
+        padding: var(--border-width);
+
         position: relative;
         isolation: isolate;
 
-        display: inline-grid;
+        display: grid;
+        grid-template-columns: 1fr;
         /* padding: 0.5em 1.5em; */
         border: 0;
         /* background: var(--background); */
@@ -140,4 +145,29 @@ export default {
         ;
     }
 /* 2 Cut Styles (End) */
+
+/* Content/Children */
+.cut-box iframe {
+    position: static;
+    width: 200% !important;
+    height: 200% !important;
+    scale: 0.5;
+    transform-origin: top left;
+    z-index: 1;
+    position: relative;
+    padding: 0;
+    margin: 0;
+    clip-path: 
+        polygon(
+            0 calc(var(--cut-size) + var(--border-width)*4),
+            calc(var(--cut-size) + var(--border-width) * 4) 0,
+            100% 0,
+            100% calc(100% - var(--cut-size) - var(--border-width) * 4),
+            calc(100% - var(--cut-size) - var(--border-width) * 4) calc(100%),
+            0 100%
+        )
+    ;
+}
+
+/* Content/Children (End) */
 </style>
