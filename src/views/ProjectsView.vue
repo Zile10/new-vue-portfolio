@@ -6,7 +6,12 @@
           <div class="col-6" v-for="proj in projects" :key="proj.id">
             <!-- <a :href="proj.projectUrl"> -->
               <CornerCutBox :styling="{width: '100%', height: '350px', background: `url(${proj.imgUrl})`}" :cuts="2">
-                <iframe :src="proj.projectUrl" frameborder="0"></iframe>
+                <!-- <iframe :src="proj.projectUrl" frameborder="0"></iframe> -->
+                <div class="project-grid">
+                  <div class="bg-danger"></div>
+                  <div class="bg-warning"></div>
+                  <div class="project-desc bg-primary"></div>
+                </div>
               </CornerCutBox>
             <!-- </a> -->
           </div>
@@ -73,4 +78,13 @@ export default {
     overflow: hidden !important;
     cursor: zoom-in;
   }  
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* grid-template-rows: 2; */
+  }
+
+  .project-desc{
+    grid-column: span 2;
+  }
 </style>

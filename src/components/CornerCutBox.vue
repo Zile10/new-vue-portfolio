@@ -20,7 +20,7 @@
             --height: ${(styling.height || '10em')};
             --background: ${(styling.background || 'darkcyan')};
             --border-color: ${(styling.borderColor || '220, 20, 60')};
-            --border-width: ${styling.borderWidth || '0.5em'};
+            --border-width: ${styling.borderWidth || '0.2em'};
             --cut-size: ${(styling.cutSize || '2.5em')};
             --cuts: ${(cuts || '1')};
         `">
@@ -62,6 +62,7 @@ export default {
         /* padding: 0.5em 1.5em; */
         border: 0;
         /* background: var(--background); */
+        overflow: hidden;
     }
 
     .cut-box::after, .cut-box::before {
@@ -168,6 +169,5 @@ export default {
         )
     ;
 }
-
 /* Content/Children (End) */
 </style>
