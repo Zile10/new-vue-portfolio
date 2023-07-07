@@ -182,9 +182,9 @@ export default {
   components: {
     CornerCutBox
   },
-  mounted() {
-    this.$store.dispatch('getProjects')
-  },
+  // mounted() {
+  //   this.$store.dispatch('getProjects')
+  // },
 };
 </script>
 

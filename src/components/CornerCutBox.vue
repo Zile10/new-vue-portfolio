@@ -14,7 +14,7 @@
         cuts="2"
         />
     -->
-    <div class="cut-box" :class="`cut-box-${cuts || '1'}`" 
+    <div class="cut-box my-2" :class="`cut-box-${cuts || '1'}`" 
         :style="`
             --width: ${(styling.width || '30em')};
             --height: ${(styling.height || '10em')};
@@ -59,9 +59,8 @@ export default {
 
         display: grid;
         grid-template-columns: 1fr;
-        /* padding: 0.5em 1.5em; */
+
         border: 0;
-        /* background: var(--background); */
         overflow: hidden;
     }
 
@@ -74,6 +73,7 @@ export default {
     .cut-box::before{
         background: transparent;
         z-index: -2;
+        background: linear-gradient(rgb(var(--border-color)), rgba(var(--border-color), 0.6));
     }
     .cut-box::after{
         background: var(--background);
@@ -83,6 +83,8 @@ export default {
         transition-property: background-position;
         transition-duration: 0.2s;
         transition-timing-function: ease-in-out;
+        box-sizing: content-box;
+        padding: var(--border-width);
     }
     /* Hover Effects */
 
