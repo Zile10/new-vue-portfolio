@@ -3,6 +3,7 @@
       <div class="container">
         <h1>PROJECTS PAGE!!!</h1>
         <hr>
+
         <div class="row">
           <div class="col-6" v-for="proj in projects" :key="proj.id" style="height: 350px;">
               <CornerCutBox :styling="{width: '100%', height: '100%', background: `url(${proj.imgUrl})`}" :cuts="2">
@@ -97,7 +98,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
   .project-grid {
     color: white;
     text-align: left;
@@ -116,23 +117,26 @@ export default {
         0 100%
       )
     ;
-  }
-  
-  .project-grid > div {
-    display: none;
+
+    > div {
+      display: none;
     padding: 1em;
     grid-row: span 1;
-  }
-  .project-grid:hover {
-    background-color: rgba(0, 0, 0, 0.6);
-  }
-  .project-grid:hover > div {
-    display: block;
-    overflow: hidden;
-  }
+    }
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.6);
+      &> div {
+        display: block;
+        overflow: hidden;
+      }
+    }
+    & h1, h2, h3, h4, h5, h6 {
+      text-align: center; 
 
-  .project-grid h1, .project-grid h2, .project-grid h3, .project-grid h4, .project-grid h5, .project-grid h6 {
-    text-align: center; 
+    }
+    .project-desc{
+      grid-column: span 2;
+    }
   }
 
   .btns .btn {
@@ -140,9 +144,6 @@ export default {
     padding: 1px;
   }
 
-  .project-desc{
-    grid-column: span 2;
-  }
   ::-webkit-scrollbar-corner {
     background: transparent;
   }
