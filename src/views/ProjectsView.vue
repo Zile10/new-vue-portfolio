@@ -10,83 +10,40 @@
 				:styling="{
 					width: '100%',
 					height: '200px',
-					background: `rgba(120, 120, 120, 0.5)`,
-					borderColor: '180, 180, 180',
+					background: `rgba(120, 120, 120, 0.65)`,
+					borderColor: 'rgba(200, 200, 200, 0.65)',
 				}"
 				:cuts="2"
 			>
 				<div class="row">
 					<!-- <iframe :src="proj.projectUrl" frameborder="0"></iframe> -->
 					<div class="col">
-						<!-- bg-danger -->
-						<h4>Skills</h4>
-						<ul>
-							<li>Blah</li>
-							<li>Blah</li>
-							<li>Blah</li>
-							<li>Blah</li>
-						</ul>
+						<img src="https://hinicio.com/wp-content/uploads/2022/08/placeholder-3.png" alt="" style="width: 100%; height: 100%;">
 					</div>
-					<div class="col">
-						<!-- bg-warning -->
-						<h4>Links</h4>
-						<div class="btns">
-							<a :href="`${proj.projectUrl}`" class="btn bg-danger"
-								>Live Link (New Tab)</a
-							>
-							<a
-								target="_blank"
-								:href="`${proj.projectUrl}`"
-								class="btn bg-danger"
-								>Live Link (Browser Tab)</a
-							>
-							<a target="_blank" :href="`${proj.codeUrl}`" class="btn bg-danger"
-								>GitHub</a
-							>
-						</div>
-					</div>
-					<div class="project-desc col">
-						<!-- bg-primary -->
-						<h4>{{ proj.projectName }}</h4>
-						<p class="h-50 overflow-scroll">{{ proj.projectDesc }}</p>
+					<div class="col-8 bg-danger d-flex flex-column">
+							<div class="desc bg-primary">
+								<h2>{{proj.projectName}}</h2>
+
+							</div>
+							<div class="links row bg-warning">
+								<div class="bg-warning col">
+									aaa
+
+								</div>
+								<div class="bg-secondary col">
+									aaa
+
+								</div>
+								<div class="bg-info col">
+									aaa
+
+								</div>
+							</div>
+							
 					</div>
 				</div>
 			</CornerCutBox>
 		</div>
-		<!-- <div class="container">
-        <div class="row">
-          <div class="col-12 col-sm-6 col-lg-4 project-col">
-            <div class="project-wrapper">
-              <iframe src="https://john-bruce-noad-bnry-test.netlify.app" class="flex-grow border-primary border border-3" id="chrome-screen" frameborder="0" title="Chrome"></iframe>
-            </div>
-          </div>
-          <div class="col-12 col-sm-6 col-lg-4 project-col">
-            <div class="project-wrapper">
-              <iframe src="https://john-bruce-capstone-project.netlify.app" class="flex-grow border-primary border border-3" id="chrome-screen" frameborder="0" title="Chrome"></iframe>
-            </div>
-          </div>
-          <div class="col-12 col-sm-6 col-lg-4 project-col">
-            <div class="project-wrapper">
-              <iframe src="https://john-bruce-js-calculator.netlify.app" class="flex-grow border-primary border border-3" id="chrome-screen" frameborder="0" title="Chrome"></iframe>
-            </div>
-          </div>
-          <div class="col-12 col-sm-6 col-lg-4 project-col">
-            <div class="project-wrapper">
-              <iframe src="https://canvas-bouncy-balls.netlify.app" class="flex-grow border-primary border border-3" id="chrome-screen" frameborder="0" title="Chrome"></iframe>
-            </div>
-          </div>
-          <div class="col-12 col-sm-6 col-lg-4 project-col">
-            <div class="project-wrapper">
-              <iframe src="https://john-bruce-js-eomp.netlify.app" class="flex-grow border-primary border border-3" id="chrome-screen" frameborder="0" title="Chrome"></iframe>
-            </div>
-          </div>
-          <div class="col-12 col-sm-6 col-lg-4 project-col">
-            <div class="project-wrapper">
-              <iframe src="https://running-man-game.netlify.app" class="flex-grow border-primary border border-3" id="chrome-screen" frameborder="0" title="Chrome"></iframe>
-            </div>
-          </div>
-        </div>
-      </div> -->
 	</div>
 </template>
 

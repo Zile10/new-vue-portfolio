@@ -10,7 +10,7 @@
               width: '100%', 
               height: '10em', 
               background: 'url(https://i.postimg.cc/9XZJbH71/wxl-landscape-pixel-art-73232.jpg); background-repeat: no-repeat', 
-              borderColor:'255, 20, 20', 
+              borderColor:'rgb(255, 20, 20)', 
               borderWidth:'calc(0.1em + 1px)',
               cutSize: '1.5em',
             }"
@@ -31,7 +31,7 @@
               width: '100%', 
               height: '10em', 
               background: 'rgb(255, 140, 140)', 
-              borderColor:'255, 20, 20', 
+              borderColor:'rgb(255, 20, 20)', 
               borderWidth:'0.5em',
               cutSize: '1.5em',
             }"
@@ -48,7 +48,7 @@
               width: '100%', 
               height: '10em', 
               background: 'rgb(255, 140, 140)', 
-              borderColor:'255, 20, 20', 
+              borderColor:'rgb(255, 20, 20)', 
               borderWidth:'0.5em',
               cutSize: '1.5em',
             }"
@@ -65,7 +65,7 @@
               width: '100%', 
               height: '10em', 
               background: 'rgb(255, 140, 140)', 
-              borderColor:'255, 20, 20', 
+              borderColor:'rgb(255, 20, 20)', 
               borderWidth:'0.5em',
               cutSize: '1.5em',
             }"
@@ -82,7 +82,7 @@
               width: '100%', 
               height: '10em', 
               background: 'rgb(255, 140, 140)', 
-              borderColor:'255, 20, 20', 
+              borderColor:'rgb(255, 20, 20)', 
               borderWidth:'0.5em',
               cutSize: '1.5em',
             }"
@@ -105,7 +105,7 @@
               width: '100%', 
               height: '10em', 
               background: 'rgb(255, 140, 140)', 
-              borderColor:'255, 20, 20', 
+              borderColor:'rgb(255, 20, 20)', 
               borderWidth:'0.5em',
               cutSize: '1.5em',
             }"
@@ -122,7 +122,7 @@
               width: '100%', 
               height: '10em', 
               background: 'rgb(255, 140, 140)', 
-              borderColor:'255, 20, 20', 
+              borderColor:'rgb(255, 20, 20)', 
               borderWidth:'0.5em',
               cutSize: '1.5em',
             }"
@@ -139,7 +139,7 @@
               width: '100%', 
               height: '10em', 
               background: 'rgb(255, 140, 140)',
-              borderColor:'255, 20, 20', 
+              borderColor:'rgb(255, 20, 20)', 
               borderWidth:'0.5em',
               cutSize: '1.5em',
             }"
@@ -156,7 +156,7 @@
               width: '100%', 
               height: '10em', 
               background: 'rgb(255, 140, 140)', 
-              borderColor:'255, 20, 20', 
+              borderColor:'rgb(255, 20, 20)', 
               borderWidth:'0.5em',
               cutSize: '1.5em',
             }"
