@@ -32,7 +32,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #fff;
-  background-color: #2c3e50;
+  color: #2c3e50;
   /* cursor: none !important; */
   display: flex;
 

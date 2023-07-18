@@ -79,7 +79,7 @@ export default {
 	// Tilt Styling
 	& > div {
 		padding: 0;
-		background: var(--border-color);
+		background: linear-gradient(-225deg, var(--border-color), transparent 150%);
 		clip-path: polygon(
 			calc(-1 * var(--border-width)) calc(var(--cut-size) + var(--border-width)),
 			var(--cut-size) 0,
