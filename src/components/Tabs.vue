@@ -7,7 +7,7 @@
         v-for="tab in tabs"
         :key="tabs.indexOf(tab)"
       >
-        <router-link :to="tab.routePath" style="text-decoration: none">
+        <!-- <router-link :to="tab.routePath" style="text-decoration: none"> -->
           <div :class="{ cut: tab.isActive }">
             <div 
               class="tab d-flex" 
@@ -43,7 +43,7 @@
               </button>
             </div>
           </div>
-        </router-link>
+        <!-- </router-link> -->
       </li>
 
       <li
@@ -80,7 +80,7 @@ export default {
   },
   methods: {
     switchTabs(index) {
-      this.$store.dispatch("switchTabs", index);
+      this.$store.dispatch("activateTab", index);
     },
     newTab() {
       this.$store.dispatch("newTab");
@@ -99,17 +99,18 @@ export default {
     tabs() {
       return this.$store.state.tabs;
     },
-    lastActiveTab() {
-      return this.$store.state.lastActiveTab;
+    activeTab() {
+      return this.tabs[this.$store.state.activeTabIndex];
     },
   },
   watch: {
     $route(to, from) {
-      this.$store.commit("setCurrentRoute", {
-        name: this.$route.name,
-        path: this.$route.path,
+      this.$store.state.tabs.forEach(tab => {
+        if (tab.isActive) {
+          tab.routeName = this.routeName
+          tab.routePath = this.currentPath
+        }
       });
-      this.$store.commit("updateCurrentTab");
     },
   },
 };

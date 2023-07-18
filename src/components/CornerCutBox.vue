@@ -25,7 +25,7 @@
 			--cuts: ${cuts || '1'};
 		`"
 	>
-		<Tilt :options="{ reverse: true, max: 9, glare: true}">
+		<Tilt v-if="tilt" :options="{ reverse: true, max: 9, glare: true}">
 			<div
 				class="cut-box"
 				:class="`cut-box-${cuts || '1'}`"
@@ -33,6 +33,15 @@
 				<slot></slot>
 			</div>
 		</Tilt>
+
+		<div v-else class="non-tilt">
+			<div
+				class="cut-box"
+				:class="`cut-box-${cuts || '1'}`"
+			>
+				<slot></slot>
+			</div>
+		</div>
 	</div>
 </template>
 <script>
@@ -45,6 +54,9 @@ export default {
 		cuts: {
 			default: 1,
 		},
+		tilt: {
+			default: false
+		}
 	},
 	components: {
 		Tilt,
@@ -65,7 +77,7 @@ export default {
 
 	
 	// Tilt Styling
-	& > div#tiltMe {
+	& > div {
 		padding: 0;
 		background: var(--border-color);
 		clip-path: polygon(
@@ -76,7 +88,10 @@ export default {
 			calc(100% - var(--cut-size)) 100%,
 			0 100%
 		);
-		> div {
+		.cut-box {
+			width: var(--width);
+			height: var(--height);
+			padding: var(--border-width);
 			background: var(--background);
 			clip-path: polygon(
 				var(--border-width) calc(var(--cut-size) + var(--border-width) * 0.5),
@@ -95,44 +110,5 @@ export default {
 	&:hover > div {
 		scale: 1.008;
 	}
-}
-
-/* Cut Box General Styles */
-.cut-box {
-	width: var(--width);
-	height: var(--height);
-	padding: var(--border-width);
-
-	position: relative;
-	isolation: isolate;
-
-	display: grid;
-	grid-template-columns: 1fr;
-
-	border: 0;
-	overflow: hidden;
-
-	&::after,
-	&::before {
-		content: "";
-		position: absolute;
-		inset: 0;
-	}
-	
-	/* Cut Box General Styles (End) */
-}
-
-div.row {
-    width: 100%;
-    margin: calc(var(--border-width) * -1) auto;
-    height: 100%;
-    clip-path: polygon( 
-		var(--border-width) calc(2 * var(--cut-size) + var(--border-width) * 0.5),
-		calc(var(--cut-size) + var(--border-width) * 0.5) var(--border-width), 
-		calc(100% - var(--border-width)) var(--border-width), 
-		calc(100% - var(--border-width)) calc(100% - var(--cut-size) - var(--border-width) * 0.5), 
-		calc(100% - var(--cut-size) - var(--border-width) * 0.5) calc(100% - var(--border-width)), 
-		var(--border-width) calc(100% - var(--border-width))
-	);
 }
 </style>

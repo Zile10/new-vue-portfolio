@@ -14,6 +14,7 @@
 					borderColor: 'rgba(200, 200, 200, 0.65)',
 				}"
 				:cuts="2"
+				:tilt="true"
 			>
 				<div class="row">
 					<!-- <iframe :src="proj.projectUrl" frameborder="0"></iframe> -->
