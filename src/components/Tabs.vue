@@ -31,13 +31,14 @@
               <button
                 v-if="!tab.isActive || (tab.isHovering && tabs.length > 1)"
                 style="border: none; background-color: transparent"
-                class="p-0 m-auto" :class="{'bg-white': tab.isActive}"
+                class="p-0 m-auto"
                 @click="closeTab(tabs.indexOf(tab))"
               >
                 <img
                   width="25"
                   height="25"
-                  src="https://img.icons8.com/ios-glyphs/60/afafaf/macos-close.png"
+                  class="close"
+                  src="https://img.icons8.com/ios-glyphs/60/f91e4e/macos-close.png"
                   alt="macos-close"
                 />
               </button>
@@ -62,14 +63,14 @@
           <img
             width="30"
             height="30"
-            src="https://img.icons8.com/ios-glyphs/30/afafaf/plus--v1.png"
+            src="https://img.icons8.com/ios-glyphs/30/f91e4e/plus--v1.png"
             alt="plus--v1"
           />
         </button>
       </li>
     </ul>
 
-    <div class="bookmark-bar sticky-top bg-white"></div>
+    <div class="bookmark-bar sticky-top"></div>
   </nav>
 </template>
 <script>
@@ -116,66 +117,68 @@ export default {
 };
 </script>
 
-<style scoped>
-.tabs {
+<style lang="scss" scoped>
+nav.tabs {
   position: sticky;
   top: 0;
   overflow: hidden;
-  box-shadow: 0 0px 5px rgba(0, 0, 0, 0.8);
+  /* box-shadow: 0 0px 5px rgba(0, 0, 0, 0.8); */
   z-index: 10;
 
   --cut-size: 1em;
-  --border-width: 2px;
-}
-nav.tabs ul {
-  background-color: #ddd;
-  border: none;
-}
-ul li {
-  padding: 0;
-}
-nav.tabs ul li .cut {
-  clip-path: polygon(
-    0em var(--cut-size),
-    var(--cut-size) 0em,
-    100% 0,
-    100% 100%,
-    0 100%
-  );
-  position: relative;
-  background: linear-gradient(rgba(255, 20, 20, 1), rgba(255, 20, 20, 0));
-  border-radius: 0 var(--border-width) 0 0;
-  margin: 0 2px;
-}
-/* li > *:not(.cut) {
-  border-bottom: 2px solid rgb(255, 20, 20);
-} */
-nav.tabs ul li .tab {
-  min-width: 100px;
-  height: 35px;
-  line-height: 35px;
-  padding-top: 0;
-  padding-bottom: 0;
-  background-color: #ddd;
-  margin-bottom: none;
-  clip-path: polygon(
-    var(--border-width) calc(var(--cut-size) + var(--border-width) * 0.5),
-    calc(var(--cut-size) + var(--border-width) * 0.5) var(--border-width),
-    calc(100% - var(--border-width)) var(--border-width),
-    calc(100% - var(--border-width)) 100%,
-    var(--border-width) 100%
-  );
-}
-.tabs ul li .tab.active {
-  background-color: white;
-  /* color: white; */
-}
-.tabs ul li .plus {
-  padding: 0;
-}
+  --border-width: 1px;
 
+  ul {
+    background-color: var(--primColor);
+    border: none;
+    li {
+      padding: 0;
+      .cut {
+        clip-path: polygon(
+          0em var(--cut-size),
+          var(--cut-size) 0em,
+          100% 0,
+          100% 100%,
+          0 100%
+        );
+        position: relative;
+        background: linear-gradient(var(--accentColor) 60%, var(--secColor) 85%);
+        border-radius: 0 var(--border-width) 0 0;
+        margin: 0 2px;
+      }
+      .tab {
+        min-width: 100px;
+        height: 35px;
+        line-height: 35px;
+        padding-top: 0;
+        padding-bottom: 0;
+        background-color: var(--primColor);
+        color: var(--textColor) !important;
+        margin-bottom: none;
+        clip-path: polygon(
+          var(--border-width) calc(var(--cut-size) + var(--border-width) * 0.5),
+          calc(var(--cut-size) + var(--border-width) * 0.5) var(--border-width),
+          calc(100% - var(--border-width)) var(--border-width),
+          calc(100% - var(--border-width)) 100%,
+          var(--border-width) 100%
+        );
+        &.active {
+          background-color: var(--secColor);
+          /* color: white; */
+        }
+      }
+      .plus {
+        padding: 0;
+        background: transparent;
+        border: none;
+      }
+    }
+  }
+}
 .bookmark-bar {
   min-height: 20px;
-  background-color: var(--primaryColor);
+  background-color: var(--secColor);
+  margin-top: -1px;
+  border-bottom: 1px solid #111;
 }
 </style>

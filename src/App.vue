@@ -22,16 +22,22 @@ export default {
   }
 };
 </script>
-<style>
+<style lang="scss">
 :root {
-  --primColor: #333;
+  --primColor: #09080d;
+  --secColor: #121019;
+  --accentColor: #f91e4e;
+  --textColor: white;
+}
+* {
+  color: white !important;
 }
 #app {
   font-family: 'Lato', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #fff;
+  background: linear-gradient(var(--primColor) 40%, var(--accentColor)240%);
   color: #2c3e50;
   /* cursor: none !important; */
   display: flex;

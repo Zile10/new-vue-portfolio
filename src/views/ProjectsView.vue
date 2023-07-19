@@ -10,8 +10,8 @@
 				:styling="{
 					width: '100%',
 					height: '200px',
-					background: `rgba(120, 120, 120, 0.65)`,
-					borderColor: 'rgba(200, 200, 200, 0.65)',
+					background: `var(--secColor)`,
+					borderColor: 'var(--accentColor)',
 				}"
 				:cuts="2"
 				:tilt="true"

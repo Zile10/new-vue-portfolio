@@ -3,26 +3,26 @@
 
     <!-- Closed/Open Area of Nav -->
     <div class="side-nav-mini">
-      <img src="https://img.icons8.com/ios-glyphs/30/FFFFFF/menu--v1.png" class="burger-menu" @click="toggleNavbar" />
+      <img src="https://img.icons8.com/ios-glyphs/30/f91e4e/menu--v1.png" class="burger-menu" @click="toggleNavbar" />
       <ul class="navbar-nav nav-icons me-auto mb-2 mb-lg-0" :class="{ closed: !navOpen }">
         <li class="nav-item">
           <router-link to="/" class="nav-link" aria-current="page">
-            <img src="https://img.icons8.com/ios/50/FFFFFF/home--v1.png" class="nav-icon" />
+            <img src="https://img.icons8.com/ios/50/f91e4e/home--v1.png" class="nav-icon" />
           </router-link>
         </li>
         <li class="nav-item">
           <router-link to="/about" class="nav-link">
-            <img src="https://img.icons8.com/ios-filled/50/FFFFFF/search--v1.png" class="nav-icon" />
+            <img src="https://img.icons8.com/ios-filled/50/f91e4e/search--v1.png" class="nav-icon" />
           </router-link>
         </li>
         <li class="nav-item">
           <router-link to="/resume" class="nav-link">
-            <img src="https://img.icons8.com/ios/50/FFFFFF/business--v1.png" class="nav-icon" />
+            <img src="https://img.icons8.com/ios/50/f91e4e/business--v1.png" class="nav-icon" />
           </router-link>
         </li>
         <li class="nav-item">
           <router-link to="/projects" class="nav-link">
-            <img src="https://img.icons8.com/ios/50/FFFFFF/electronics.png" class="nav-icon" />
+            <img src="https://img.icons8.com/ios/50/f91e4e/electronics.png" class="nav-icon" />
           </router-link>
         </li>
       </ul>
@@ -30,7 +30,7 @@
       <ul class="navbar-nav nav-icons me-auto mb-2 mb-lg-0" :class="{ closed: !navOpen }">
         <li class="nav-item">
           <a href="https://github.com/Zile10" target="_blank">
-            <img src="https://img.icons8.com/ios-glyphs/30/FFFFFF/github.png" loading="lazy" class="nav-icon">
+            <img src="https://img.icons8.com/ios-glyphs/30/ffffff/github.png" loading="lazy" class="nav-icon">
           </a>
         </li>
         <li class="nav-item">
@@ -111,7 +111,10 @@ export default {
   },
 };
 </script>
-<style scoped>
+<style lang="scss" scoped>
+
+$width: 40px;
+$iconSize: 20px;
 /* General Nav Styles */
 .side-nav {
   display: flex;
@@ -151,11 +154,11 @@ ul li a.router-link-exact-active {
 
 /* Closed Nav Styles */
 .side-nav-mini {
-  background-color: #111;
-  box-shadow: 0 0 3px #444;
+  background-color: var(--primColor);
+  box-shadow: 0 0 3px var(--accentColor);
   min-height: 100vh;
   height: 100%;
-  width: 50px;
+  width: $width !important;
   position: absolute;
   z-index: 20;
   justify-content: center;
@@ -166,10 +169,11 @@ ul li a.router-link-exact-active {
   border-radius: 30px;
   padding: 8px;
   margin-top: 10px;
+  width: $iconSize * 2.25;
 }
 
 .burger-menu:hover {
-  background-color: #444;
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .side-nav-mini ul {
@@ -177,7 +181,7 @@ ul li a.router-link-exact-active {
 }
 
 .nav-icon {
-  width: 32px !important;
+  width: $iconSize !important;
 }
 
 
@@ -188,7 +192,7 @@ ul li a.router-link-exact-active {
   /* Sizing */
   min-height: 100vh;
   height: 100%;
-  width: 50px;
+  width: $width;
   /* Position */
   position: relative;
   left: -250px;
@@ -210,4 +214,5 @@ ul li a.router-link-exact-active {
 .side-nav-large.side-nav-open {
   left: 0px;
   width: 300px;
-}</style>
+}
+</style>

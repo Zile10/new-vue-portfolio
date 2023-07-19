@@ -1,13 +1,14 @@
 <template>
   <div class="container">
-    <div class="landing">
-      
-    </div>
+    <CornerCutBox/>
   </div>
 </template>
 <script>
+import CornerCutBox from '@/components/CornerCutBox.vue';
 export default {
-  
+  components: {
+    CornerCutBox
+  }
 }
 </script>
 <style lang="scss">
