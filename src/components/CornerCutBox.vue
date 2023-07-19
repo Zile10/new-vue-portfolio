@@ -25,7 +25,7 @@
 			--cuts: ${cuts || '1'};
 		`"
 	>
-		<Tilt v-if="tilt" :options="{ reverse: true, max: 9, glare: true}">
+		<Tilt v-if="tilt" :options="options">
 			<div
 				class="cut-box"
 				:class="`cut-box-${cuts || '1'}`"
@@ -56,6 +56,13 @@ export default {
 		},
 		tilt: {
 			default: false
+		},
+		options: {
+			default: { 
+				reverse: true, 
+				max: 9, 
+				glare: true
+			}
 		}
 	},
 	components: {
@@ -79,6 +86,7 @@ export default {
 	// Tilt Styling
 	& > div {
 		padding: 0;
+		width: var(--width);
 		background: linear-gradient(-225deg, var(--border-color), transparent 150%);
 		clip-path: polygon(
 			calc(-1 * var(--border-width)) calc(var(--cut-size) + var(--border-width)),

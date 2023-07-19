@@ -179,6 +179,6 @@ nav.tabs {
   min-height: 20px;
   background-color: var(--secColor);
   margin-top: -1px;
-  border-bottom: 1px solid #111;
+  border-bottom: 0.5px solid var(--primColor);
 }
 </style>
