@@ -10,8 +10,10 @@
           borderWidth: '2px',
         }"
         :options="{
-          glare: 'false'
-          
+          reverse: true,
+          glare: true,
+          max: 1,
+          'max-glare': 0.1,
         }"
       >
         

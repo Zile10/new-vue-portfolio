@@ -6,11 +6,20 @@
       <router-view />
     </main>
   </div>
+  <div class="magnify">
+
+  </div>
 </template>
 <script>
 import Tabs from "./components/Tabs.vue";
 import NavBar from "./components/NavBar.vue";
 import FooterComp from "./components/Footer.vue";
+
+let magnify = document.querySelector('.magnify')
+addEventListener('mousemove', (e)=>{
+  magnify.style.top = e.y
+  magnify.style.left = e.x
+})
 export default {
   components: {
     NavBar,
@@ -23,6 +32,15 @@ export default {
 };
 </script>
 <style lang="scss">
+.magnify {
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  position: fixed;
+
+  border: 1px solid white;
+  
+}
 :root {
   --primColor: #09080d;
   --secColor: #121019;

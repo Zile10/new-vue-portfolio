@@ -94,13 +94,24 @@ export default {
 			100% 0,
 			100% calc(100% - var(--cut-size)),
 			calc(100% - var(--cut-size)) 100%,
-			0 100%
+			0 100%,
+
+			// calc(-1 * var(--border-width)) calc(var(--cut-size) + var(--border-width)),
+			// calc(1 * var(--border-width)) calc(var(--cut-size)),
+
+			// var(--border-width) 								calc(100% - var(--border-width)),
+			// calc(100% - var(--border-width) - var(--cut-size)) 	calc(100% - var(--border-width)),
+			// calc(100% - var(--border-width)) 					calc(100% - var(--border-width) - var(--cut-size)),
+			// calc(100% - var(--border-width)) 					var(--border-width),
+			// var(--cut-size) 									var(--border-width),
+			// calc(1 * var(--border-width)) 						calc(var(--cut-size)),
 		);
 		.cut-box {
 			width: var(--width);
 			height: var(--height);
 			padding: var(--border-width);
-			background: var(--background);
+			background: rgba($color: #000000, $alpha: 0.7); // var(--background)
+			backdrop-filter: blur(20px);
 			clip-path: polygon(
 				var(--border-width) calc(var(--cut-size) + var(--border-width) * 0.5),
 				calc(var(--cut-size) + var(--border-width) * 0.5) var(--border-width),
