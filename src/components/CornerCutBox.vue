@@ -26,20 +26,26 @@
 		`"
 	>
 		<Tilt v-if="tilt" :options="options">
-			<div
-				class="cut-box"
-				:class="`cut-box-${cuts || '1'}`"
-			>
-				<slot></slot>
+			<div class="cut-box">
+				<div class="cut-box-border">
+
+				</div>
+				<div class="cut-box-inner"></div>
+				<div class="cut-box-content">
+					<slot></slot>
+				</div>
 			</div>
 		</Tilt>
 
 		<div v-else class="non-tilt">
-			<div
-				class="cut-box"
-				:class="`cut-box-${cuts || '1'}`"
-			>
-				<slot></slot>
+			<div class="cut-box">
+				<div class="cut-box-border">
+
+				</div>
+				<div class="cut-box-inner"></div>
+				<div class="cut-box-content">
+					<slot></slot>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -81,13 +87,20 @@ export default {
 	--border-width: 4px;
 	--cut-size: 2.5em;
 	--cuts: 1;
+	// clip-path: polygon(
+	// 		calc(-1 * var(--border-width)) calc(var(--cut-size) + var(--border-width)),
+	// 		var(--cut-size) 0,
+	// 		100% 0,
+	// 		100% calc(100% - var(--cut-size)),
+	// 		calc(100% - var(--cut-size)) 100%,
+	// 		0 100%
+	// 	);
 
 	
 	// Tilt Styling
 	& > div {
-		padding: 0;
 		width: var(--width);
-		background: linear-gradient(-225deg, var(--border-color), transparent 150%);
+		height: var(--height);
 		clip-path: polygon(
 			calc(-1 * var(--border-width)) calc(var(--cut-size) + var(--border-width)),
 			var(--cut-size) 0,
@@ -96,38 +109,74 @@ export default {
 			calc(100% - var(--cut-size)) 100%,
 			0 100%,
 
-			// calc(-1 * var(--border-width)) calc(var(--cut-size) + var(--border-width)),
-			// calc(1 * var(--border-width)) calc(var(--cut-size)),
-
-			// var(--border-width) 								calc(100% - var(--border-width)),
-			// calc(100% - var(--border-width) - var(--cut-size)) 	calc(100% - var(--border-width)),
-			// calc(100% - var(--border-width)) 					calc(100% - var(--border-width) - var(--cut-size)),
-			// calc(100% - var(--border-width)) 					var(--border-width),
-			// var(--cut-size) 									var(--border-width),
-			// calc(1 * var(--border-width)) 						calc(var(--cut-size)),
+			calc(-1 * var(--border-width)) calc(var(--cut-size) + var(--border-width) * 0.5),
 		);
-		.cut-box {
-			width: var(--width);
-			height: var(--height);
-			padding: var(--border-width);
-			background: rgba($color: #000000, $alpha: 0.7); // var(--background)
-			backdrop-filter: blur(20px);
-			clip-path: polygon(
-				var(--border-width) calc(var(--cut-size) + var(--border-width) * 0.5),
-				calc(var(--cut-size) + var(--border-width) * 0.5) var(--border-width),
-				calc(100% - var(--border-width)) var(--border-width),
-				calc(100% - var(--border-width))
-					calc(100% - var(--cut-size) - var(--border-width) * 0.5),
-				calc(100% - var(--cut-size) - var(--border-width) * 0.5)
-					calc(100% - var(--border-width)),
-				var(--border-width) calc(100% - var(--border-width))
-			);
+		&:hover {
+			scale: 1.008;
 		}
-		overflow: hidden;
-	}
-	// Hover 
-	&:hover > div {
-		scale: 1.008;
+		.cut-box {
+			
+			.cut-box-border {
+				backdrop-filter: blur(50px);
+				position: absolute;
+				width: var(--width);
+				height: var(--height);
+				padding: 0;
+				width: var(--width);
+				background: linear-gradient(-225deg, var(--border-color), transparent 150%);
+				clip-path: polygon(
+					calc(-1 * var(--border-width)) calc(var(--cut-size) + var(--border-width)),
+					var(--cut-size) 0,
+					100% 0,
+					100% calc(100% - var(--cut-size)),
+					calc(100% - var(--cut-size)) 100%,
+					0 100%,
+		
+					calc(-1 * var(--border-width)) 							  calc(var(--cut-size) + var(--border-width) * 0.5),
+					var(--border-width) 									  calc(var(--cut-size) + var(--border-width) * 0.5),
+		
+					var(--border-width) 									  calc(100% - var(--border-width)),
+					calc(100% - var(--cut-size) - var(--border-width) * 0.5)  calc(100% - var(--border-width)),
+					calc(100% - var(--border-width))						  calc(100% - var(--cut-size) - var(--border-width) * 0.5),
+					calc(100% - var(--border-width)) 						  var(--border-width),
+					calc(var(--cut-size) + var(--border-width) * 0.5) 		  var(--border-width),
+					var(--border-width) 									  calc(var(--cut-size) + var(--border-width) * 0.5),
+		
+				);
+				
+			}
+			
+			.cut-box-inner {
+				position: absolute;
+				width: var(--width);
+				height: var(--height);
+				padding: var(--border-width);
+				background: var(--background);
+				opacity: 0.7;
+				clip-path: polygon(
+					var(--border-width) 									  calc(var(--cut-size) + var(--border-width) * 0.5),
+					calc(var(--cut-size) + var(--border-width) * 0.5) 		  var(--border-width),
+					calc(100% - var(--border-width)) 						  var(--border-width),
+					calc(100% - var(--border-width))						  calc(100% - var(--cut-size) - var(--border-width) * 0.5),
+					calc(100% - var(--cut-size) - var(--border-width) * 0.5)  calc(100% - var(--border-width)),
+					var(--border-width) 									  calc(100% - var(--border-width))
+				);
+			}
+			.cut-box-content {
+				position: absolute;
+				width: var(--width);
+				height: var(--height);
+				padding: var(--border-width);
+				clip-path: polygon(
+					var(--border-width) 									  calc(var(--cut-size) + var(--border-width) * 0.5),
+					calc(var(--cut-size) + var(--border-width) * 0.5) 		  var(--border-width),
+					calc(100% - var(--border-width)) 						  var(--border-width),
+					calc(100% - var(--border-width))						  calc(100% - var(--cut-size) - var(--border-width) * 0.5),
+					calc(100% - var(--cut-size) - var(--border-width) * 0.5)  calc(100% - var(--border-width)),
+					var(--border-width) 									  calc(100% - var(--border-width))
+				);
+			}
+		}
 	}
 }
 </style>

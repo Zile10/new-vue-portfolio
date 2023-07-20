@@ -16,7 +16,7 @@
           'max-glare': 0.1,
         }"
       >
-        
+        <div>fghj</div>
       </CornerCutBox>
     </div>
 	</div>
