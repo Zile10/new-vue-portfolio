@@ -88,7 +88,7 @@ export default {
 }
 ::-webkit-scrollbar-thumb {
 	background-color: #999;
-	border-radius: 5px;
+	border-radius: 5px; 
 }
 
 main {

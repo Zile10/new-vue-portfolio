@@ -16,7 +16,12 @@
           'max-glare': 0.1,
         }"
       >
-        <div>fghj</div>
+
+
+
+        <div class="profile-grid">
+          
+        </div>
       </CornerCutBox>
     </div>
 	</div>

@@ -70,7 +70,7 @@
       </li>
     </ul>
 
-    <div class="bookmark-bar-border sticky-top" :style="`background: linear-gradient(90deg, transparent ${activeTabIndex * 100 - 300}px, var(--accentColor), transparent ${activeTabIndex * 100 + 100 + 300}px);`">
+    <div class="bookmark-bar-border sticky-top" :style="`background: linear-gradient(90deg, var(--accentColor), transparent ${activeTabIndex * 100 + 100 + 300}px);`">
       <div class="bookmark-bar sticky-top">
   
       </div>
