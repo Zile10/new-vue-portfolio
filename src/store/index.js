@@ -7,7 +7,7 @@ const apiUrl = 'http://localhost:6969/'
 
 export default createStore({
   state: {
-    tabs: localStorage.getItem('portfolioTabs') || [
+    tabs: JSON.parse(localStorage.getItem('portfolioTabs')) || [
       {
         isActive: true,
         isHovering: false,
@@ -67,23 +67,7 @@ export default createStore({
       
     },
     closeTab(state, index) {
-      // Removing Deleted Tab From Array. Initializing local copy of tabs
       let deletedTab = state.tabs.splice(index, 1);
-      let localTabs = []
-
-      // Setting All Tabs to Not Active
-      state.tabs.forEach(tab => {
-        tab.isActive = false
-        localTabs.push(tab)
-      })
-
-      // Setting Last Tab in Array to Active & Navigating to it.
-      let lastTab = localTabs[localTabs.length - 1];
-      lastTab.isActive = true
-      router.push(lastTab.routePath)
-
-      // Updating State Tabs
-      state.tabs = localTabs
     },
 
     // API - Projects
@@ -112,18 +96,19 @@ export default createStore({
       context.commit('setActiveTab', index)    
     },
     newTab(context) {
-      let tabs = context.state.tabs
-      for (const tab of tabs) {
-        if (tab.isActive) {
-          tab.isActive = false;
-        }
-      }
       context.commit('newTab')
+      let tabs = context.state.tabs
       context.dispatch('activateTab', tabs.length - 1)
     },
     async closeTab(context, tab) {
+      // Removing Deleted Tab From Array. Initializing local copy of tabs
       context.commit('closeTab', tab)
+      // Activating last Tab in array
+      let tabs = context.state.tabs
+      context.dispatch('activateTab', tabs.length - 1)
     },
+
+
     // API - Projects
     async getProjects(context) {
       const res = await axios.get(`${apiUrl}projects`);

@@ -40,7 +40,6 @@ export default {
 		addEventListener("mousemove", (e) => {
 			this.mouse.position.x = e.x;
 			this.mouse.position.y = e.y;
-			console.log(this.mouse);
 		});
 	},
 };

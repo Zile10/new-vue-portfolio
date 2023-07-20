@@ -70,7 +70,12 @@
       </li>
     </ul>
 
-    <div class="bookmark-bar sticky-top"></div>
+    <div class="bookmark-bar-border sticky-top" :style="`background: linear-gradient(90deg, transparent ${activeTabIndex * 100 - 300}px, var(--accentColor), transparent ${activeTabIndex * 100 + 100 + 300}px);`">
+      <div class="bookmark-bar sticky-top">
+  
+      </div>
+
+    </div>
   </nav>
 </template>
 <script>
@@ -100,11 +105,19 @@ export default {
     tabs() {
       return this.$store.state.tabs;
     },
+    activeTabIndex() {
+      return this.$store.state.activeTabIndex;
+    },
     activeTab() {
-      return this.tabs[this.$store.state.activeTabIndex];
+      return this.tabs[this.activeTabIndex];
     },
   },
   watch: {
+    activeTab(newActive, oldActive){
+      if (this.tabs.indexOf(newActive) != this.activeTabIndex) {
+        this.activeTabIndex = this.tabs.indexOf(newActive)
+      }
+    },
     $route(to, from) {
       this.$store.state.tabs.forEach(tab => {
         if (tab.isActive) {
@@ -131,8 +144,14 @@ nav.tabs {
   ul {
     background-color: var(--primColor);
     border: none;
+    z-index: 10;
     li {
       padding: 0;
+      z-index: 10;
+      background: transparent;
+      & > div {
+        background:  transparent;
+      }
       .cut {
         clip-path: polygon(
           0em var(--cut-size),
@@ -142,7 +161,7 @@ nav.tabs {
           0 100%
         );
         position: relative;
-        background: linear-gradient(var(--accentColor) 60%, var(--secColor) 85%);
+        background:  linear-gradient(var(--accentColor) 98%, var(--secColor) 2%);
         border-radius: 0 var(--border-width) 0 0;
         margin: 0 2px;
       }
@@ -152,7 +171,6 @@ nav.tabs {
         line-height: 35px;
         padding-top: 0;
         padding-bottom: 0;
-        background-color: var(--primColor);
         color: var(--textColor) !important;
         margin-bottom: none;
         clip-path: polygon(
@@ -164,6 +182,7 @@ nav.tabs {
         );
         &.active {
           background-color: var(--secColor);
+          z-index: 1;
           /* color: white; */
         }
       }
@@ -175,10 +194,15 @@ nav.tabs {
     }
   }
 }
-.bookmark-bar {
-  min-height: 20px;
-  background-color: var(--secColor);
-  margin-top: -1px;
-  border-bottom: 0.5px solid var(--primColor);
+.bookmark-bar-border {
+  transition: all 0.8s;
+  margin-top: -2px;
+  padding-top: 1px;
+  z-index: 0;
+  .bookmark-bar {
+    min-height: 20px;
+    background-color: var(--secColor);
+    border-bottom: 0.5px solid var(--primColor)
+  }
 }
 </style>
