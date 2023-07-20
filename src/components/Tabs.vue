@@ -71,11 +71,12 @@
     </ul>
 
     <div class="bookmark-bar-border sticky-top" :style="`background: linear-gradient(90deg, var(--accentColor), transparent ${activeTabIndex * 100 + 100 + 300}px);`">
-      <div class="bookmark-bar sticky-top">
-  
-      </div>
-
+      <div class="bookmark-bar sticky-top text-start">
+        <img width="20" style="height: auto;" src="https://img.icons8.com/ios-glyphs/30/ffffff/back.png" alt="back"/>
+        <img width="20" style="height: auto;" src="https://img.icons8.com/ios-glyphs/30/ffffff/forward.png" alt="forward"/>
+        <img width="20" style="height: auto;" src="https://img.icons8.com/ios-glyphs/30/ffffff/reboot.png" alt="reboot"/>      </div>
     </div>
+
   </nav>
 </template>
 <script>
@@ -200,6 +201,7 @@ nav.tabs {
   padding-top: 1px;
   z-index: 0;
   .bookmark-bar {
+    padding: 0 5px 3px 0;
     min-height: 20px;
     background-color: var(--secColor);
     border-bottom: 0.5px solid var(--primColor)
