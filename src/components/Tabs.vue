@@ -71,10 +71,12 @@
     </ul>
 
     <div class="bookmark-bar-border sticky-top" :style="`background: linear-gradient(90deg, var(--accentColor), transparent ${activeTabIndex * 100 + 100 + 300}px);`">
-      <div class="bookmark-bar sticky-top text-start">
+      <div class="bookmark-bar sticky-top text-start d-flex">
         <img width="20" style="height: auto;" src="https://img.icons8.com/ios-glyphs/30/ffffff/back.png" alt="back"/>
         <img width="20" style="height: auto;" src="https://img.icons8.com/ios-glyphs/30/ffffff/forward.png" alt="forward"/>
-        <img width="20" style="height: auto;" src="https://img.icons8.com/ios-glyphs/30/ffffff/reboot.png" alt="reboot"/>      </div>
+        <img width="20" style="height: auto;" src="https://img.icons8.com/ios-glyphs/30/ffffff/reboot.png" alt="reboot"/>      
+        <input type="text" onclick="this.select()" :value="`${currentUrl}`">
+      </div>
     </div>
 
   </nav>
@@ -99,6 +101,9 @@ export default {
   computed: {
     currentPath() {
       return this.$route.path;
+    },
+    currentUrl() {
+      return window.location.href;
     },
     routeName() {
       return this.$route.name;
@@ -193,6 +198,7 @@ nav.tabs {
         border: none;
       }
     }
+
   }
 }
 .bookmark-bar-border {
@@ -201,10 +207,40 @@ nav.tabs {
   padding-top: 1px;
   z-index: 0;
   .bookmark-bar {
-    padding: 0 5px 3px 0;
+    padding: 5px;
     min-height: 20px;
     background-color: var(--secColor);
-    border-bottom: 0.5px solid var(--primColor)
+    border-bottom: 0.5px solid var(--primColor);
+    align-items: center;
+    & > * {
+      $marginX: 6px;
+      margin-left: $marginX;
+      // margin-right: $marginX;
+    }
+    img {
+      $size: 20px;
+      width: $size !important;
+      height: $size !important;
+    }
+    input {
+      width: 100%;
+      min-height: 22px !important;
+      font-size: 13px;
+      font-weight: normal;
+      background: var(--secColor);
+      border: none;
+      padding: 5px 60px;
+      border-radius: 3px;
+      background-image: url(https://i.postimg.cc/L69GgKjp/bar.png);
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      &:focus {
+        border: none !important;
+        outline: none;
+        background-color: #251f33;
+      }
+    }
   }
 }
 </style>

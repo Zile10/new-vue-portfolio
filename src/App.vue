@@ -74,14 +74,10 @@ export default {
 	/* cursor: none !important; */
 	display: flex;
 }
-
-.cursor {
-	width: 20px;
-	height: 20px;
-	background-color: #2c3e50;
-	border-radius: 100px;
-	position: fixed;
-	z-index: 10000;
+::selection {
+	background: var(--accentColor);
+	color: var(--primColor);
+	font-weight: 300;
 }
 ::-webkit-scrollbar {
 	width: 5px;
