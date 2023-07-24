@@ -36,25 +36,11 @@ export default {
 
 	// },
 	mounted() {
-		let magnify = document.querySelector(".magnify");
-		addEventListener("mousemove", (e) => {
-			this.mouse.position.x = e.x;
-			this.mouse.position.y = e.y;
-		});
+		
 	},
 };
 </script>
 <style lang="scss">
-.magnify {
-  $size: 100px;
-	width: $size;
-	height: $size;
-	border-radius: $size;
-	position: fixed;
-	z-index: 1000;
-	border: 1px solid white;
-	backdrop-filter: blur(5px);
-}
 :root {
 	--primColor: #09080d;
 	--secColor: #121019;
