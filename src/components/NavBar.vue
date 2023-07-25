@@ -12,7 +12,8 @@
         </li>
         <li class="nav-item">
           <router-link to="/about" class="nav-link">
-            <img src="https://img.icons8.com/ios-filled/50/f91e4e/search--v1.png" class="nav-icon" />
+            <img src="https://img.icons8.com/ios/50/f91e4e/about.png" class="nav-icon" alt="about"/>
+            <!-- <img src="https://img.icons8.com/ios-filled/50/f91e4e/search--v1.png" class="nav-icon" /> -->
           </router-link>
         </li>
         <li class="nav-item">

@@ -99,7 +99,7 @@
     <div class="about-me">
       <h4>Testimonials</h4>
       <div class="m-auto row">
-        <div class="col" v-for="i in [1, 2, 3]" :key="i">
+        <div class="col">
           <CornerCutBox 
             :styling="{
               width: '100%', 
