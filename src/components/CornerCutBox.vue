@@ -87,19 +87,10 @@ export default {
 	--border-width: 4px;
 	--cut-size: 2.5em;
 	--cuts: 1;
-	// clip-path: polygon(
-	// 		calc(-1 * var(--border-width)) calc(var(--cut-size) + var(--border-width)),
-	// 		var(--cut-size) 0,
-	// 		100% 0,
-	// 		100% calc(100% - var(--cut-size)),
-	// 		calc(100% - var(--cut-size)) 100%,
-	// 		0 100%
-	// 	);
-
 	
 	// Tilt Styling
 	& > div {
-		width: var(--width);
+		// width: var(--width);
 		height: var(--height);
 		clip-path: polygon(
 			calc(-1 * var(--border-width)) calc(var(--cut-size) + var(--border-width)),
@@ -111,18 +102,18 @@ export default {
 
 			calc(-1 * var(--border-width)) calc(var(--cut-size) + var(--border-width) * 0.5),
 		);
+		scale: 1;
 		&:hover {
 			scale: 1.008;
 		}
 		.cut-box {
-			
+
 			.cut-box-border {
 				backdrop-filter: blur(50px);
 				position: absolute;
 				width: var(--width);
 				height: var(--height);
 				padding: 0;
-				width: var(--width);
 				background: linear-gradient(-225deg, var(--border-color), transparent 150%);
 				clip-path: polygon(
 					calc(-1 * var(--border-width)) calc(var(--cut-size) + var(--border-width)),
@@ -163,6 +154,7 @@ export default {
 				);
 			}
 			.cut-box-content {
+				overflow: hidden;
 				position: absolute;
 				width: var(--width);
 				height: var(--height);

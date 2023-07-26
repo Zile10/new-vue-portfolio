@@ -70,7 +70,7 @@
       </li>
     </ul>
 
-    <div class="bookmark-bar-border sticky-top" :style="`background: linear-gradient(90deg, var(--accentColor), transparent ${activeTabIndex * 100 + 100 + 300}px);`">
+    <div class="bookmark-bar-border sticky-top" :style="`background: linear-gradient(90deg, var(--accentColor), transparent ${activeTabIndex * 150 + 400}px);`">
       <div class="bookmark-bar sticky-top text-start d-flex">
         <img width="20" style="height: auto;" src="https://img.icons8.com/ios-glyphs/30/ffffff/back.png" alt="back"/>
         <img width="20" style="height: auto;" src="https://img.icons8.com/ios-glyphs/30/ffffff/forward.png" alt="forward"/>

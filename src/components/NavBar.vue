@@ -40,8 +40,8 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="https://www.linkedin.com/in/john-bruce-noad-518171266/" target="_blank" class="nav-icon">
-            <img src="https://img.icons8.com/color/48/null/linkedin.png">
+          <a href="https://www.linkedin.com/in/john-bruce-noad-518171266/" target="_blank">
+            <img src="https://img.icons8.com/color/48/null/linkedin.png" class="nav-icon">
           </a>
         </li>
       </ul>
