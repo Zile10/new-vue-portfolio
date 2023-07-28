@@ -3,7 +3,7 @@
         import CornerCutBox from '@/components/CornerCutBox.vue';
 
         <CornerCutBox 
-        :styles="{
+        :styling="{
             width: '30em', 
             height: '10em', 
             background: 'darkcyan', 
@@ -12,6 +12,7 @@
             cutSize: '1.5em',
         }"
         cuts="2"
+
         />
     -->
 	<div class="tilt-parent my-2"
@@ -23,9 +24,10 @@
 			--border-width: ${styling.borderWidth || '0.2em'};
 			--cut-size: ${styling.cutSize || '2.5em'};
 			--cuts: ${cuts || '1'};
+			margin: ${styling.margin || '0'} !important;
 		`"
 	>
-		<Tilt v-if="tilt" :options="options">
+		<Tilt v-if="tilt" :options="Object.assign({reverse: true, max: 9,  glare: true}, options)">
 			<div class="cut-box">
 				<div class="cut-box-border">
 
