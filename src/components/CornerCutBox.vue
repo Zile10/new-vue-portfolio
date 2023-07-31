@@ -136,7 +136,6 @@ export default {
 					var(--border-width) 									  calc(var(--cut-size) + var(--border-width) * 0.5),
 		
 				);
-				
 			}
 			
 			.cut-box-inner {
@@ -144,6 +143,7 @@ export default {
 				width: var(--width);
 				height: var(--height);
 				padding: var(--border-width);
+				background-size: cover !important;
 				background: var(--background);
 				opacity: 0.7;
 				clip-path: polygon(

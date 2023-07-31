@@ -6,7 +6,7 @@
           <h2>John-Bruce Noad</h2>
         </div>
         <div class="col">
-          <img src="https://postimg.cc/SYpxLwwm">
+          <img src="https://i.postimg.cc/4yYHGGPH/john-bruce-noad-portfolio-photo-removebg-preview.png" alt="Profile Pic" class="profile-pic">
         </div>
       </div>
     </CornerCutBox>
@@ -24,7 +24,7 @@ export default {
         width: '100%',
         height: '85vh',
         margin: '1em 0px',
-        background: 'transparent'
+        background: 'url(https://i.postimg.cc/mkpnb7mq/75e543660cc620f3092d8461c51202af.jpg), '
       },
       TiltOptions: {
         max: '2',
@@ -34,5 +34,8 @@ export default {
 }
 </script>
 <style lang="scss">
-  
+  .profile-pic {
+    position: relative;
+    bottom: -1em;
+  }
 </style>
