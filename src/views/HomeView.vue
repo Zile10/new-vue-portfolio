@@ -6,7 +6,8 @@
           <h2>John-Bruce Noad</h2>
         </div>
         <div class="col">
-          <img src="https://i.postimg.cc/4yYHGGPH/john-bruce-noad-portfolio-photo-removebg-preview.png" alt="Profile Pic" class="profile-pic">
+          <img src="" alt="Profile Pic" class="profile-pic">
+          <!-- https://i.postimg.cc/4yYHGGPH/john-bruce-noad-portfolio-photo-removebg-preview.png -->
         </div>
       </div>
     </CornerCutBox>

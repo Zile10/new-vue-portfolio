@@ -17,10 +17,10 @@
 					<!-- {{ user.firstName + ' ' + user.lastName}} -->
 					<p></p>
 					<!-- {{
-										user.description
-											? user.description
-											: "'Nothing to see here...'"
-									}} -->
+							user.description
+								? user.description
+								: "'Nothing to see here...'"
+						}} -->
 					<p>Age</p>
 					<!-- {{ age }} -->
 					<p>Joined on</p>

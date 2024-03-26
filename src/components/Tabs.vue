@@ -231,7 +231,7 @@ nav.tabs {
       border: none;
       padding: 5px 60px;
       border-radius: 3px;
-      background-image: url(https://i.postimg.cc/L69GgKjp/bar.png);
+      // background-image: url(https://i.postimg.cc/L69GgKjp/bar.png);
       background-position: center center;
       background-repeat: no-repeat;
       background-size: cover;
